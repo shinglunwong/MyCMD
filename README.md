@@ -1,12 +1,13 @@
 -minute
+/
 30 Apr 2018
-feature - visualise the availability by the density of color
-feature - display hidden folder by command 
-styling - reference the style of terminal showing the digital calendar
-mode - normal mode vs programmer mode -> normal mode with buttons
-styling - fixed input box at the bottom
-route - non-refresh get / post
-command - /today = check date by month and day then go to database. => handlebars
+- feature - visualise the availability by the density of color
+- feature - display hidden folder by command 
+- styling - reference the style of terminal showing the digital calendar
+- mode - normal mode vs programmer mode -> normal mode with buttons
+- styling - fixed input box at the bottom
+- route - non-refresh get / post
+- command - /today = check date by month and day then go to database. => handlebars
 /
 
 ￼
