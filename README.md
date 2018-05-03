@@ -28,8 +28,10 @@ daily tasks
 - [ ] seek exercise api
 </break>
 Intro: This app/website aims to display charts of the discrepancy between calories intake (and nutritions) and calories burned. This app estimates calories intake by calling food API and calories burnt by our database (?).
-As we talk in the afternoon 02 May :
+
+
 </break>
+As we talk in the afternoon 02 May :
 For database:
 - setup user table containing height, weight , gender, bob and atEase (a spot user avoid to exercise), goal(purpose: aerobic , gain muscle, ETC)
 - diet-record (what users have eaten and what time (morning, noon and night)
