@@ -16,8 +16,10 @@ daily tasks
 - set database ‘users’  ‘one-to-many’ ‘
 - register users in local database
 - set up new repo and express-generator start off a new project 
+</b>
 
-03 May 2018 - recipe and exercise app
+
+03 May 2018 - recipe and exercise app (redirected)
 [ ] wireframe
 [ ] seek if any api about exercise and how much calories related exercises
 [ ] any similar app / website
