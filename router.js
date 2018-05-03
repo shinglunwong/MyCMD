@@ -33,5 +33,8 @@ module.exports = (express) => {
         res.sendFile(__dirname + '/index.html');
     });
 
+    router.get('/register', (req,res) => {
+        res.sendFile(__dirname + '/register.html');
+    })
     return router;
 };

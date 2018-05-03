@@ -17,4 +17,18 @@ daily tasks
 - register users in local database
 - set up new repo and express-generator start off a new project 
 
-//testing
+03 May 2018 - recipe and exercise app
+[ ] wireframe
+[ ] seek if any api about exercise and how much calories related exercises
+[ ] any similar app / website
+[ ] layout / front-end could first thing to do
+[ ] seek exercise api
+
+Intro: This app/website aims to display charts of the discrepancy between calories intake (and nutritions) and calories burned. This app estimates calories intake by calling food API and calories burnt by our database (?).
+As we talk in the afternoon 02 May :
+
+For database:
+- setup user table containing height, weight , gender, bob and atEase (a spot user avoid to exercise), goal(purpose: aerobic , gain muscle, ETC)
+- diet-record (what users have eaten and what time (morning, noon and night)
+- exercise categorisation according to body parts (e.g shoulder, tight and bicep)
+For calculation is to be confirmed by Brad.

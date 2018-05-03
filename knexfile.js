@@ -6,17 +6,17 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'MyCMD',
-      user:     'username',
-      password: 'password'
+      user:     'shawn_admin',
+      password: 'a123456'
     }
   },
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'MyCMD',
+      user:     'shawn_admin',
+      password: 'a123456'
     },
     pool: {
       min: 2,
