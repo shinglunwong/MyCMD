@@ -27,11 +27,35 @@
 - Food calories API
     https://www.nutritionix.com/consumer
 
+- MET 2011 
+    http://download.lww.com/wolterskluwer_vitalstream_com/permalink/mss/a/mss_43_8_2011_06_13_ainsworth_202093_sdc1.pdf
+
 
 - Logged in user
     - age, gender, w, h (basic user info)
     - occupation and activity level
     - !preferred muscles group (upper body/ back/ abdominal/ lower body)
     - exercise type (aerobic/ muscle)
-    - goal weight 
-    - 
+    - goal weight, goal date
+
+
+- Casual user
+    - food name 
+    - weight 
+    - duration 
+
+    - exercise type -> basketball/ swimming/.... /exercise 
+
+    - !preferred muscles group 
+
+
+- List
+    - swimming
+    - running
+    - cycling
+    - rope-jumping
+    - exercise
+        - dumbell 
+        - squat 
+        - lunge 
+        - 
