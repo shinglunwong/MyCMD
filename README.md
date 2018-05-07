@@ -30,3 +30,8 @@ setup user table containing
 - diet-record (what users have eaten and what time (morning, noon and night)
 - exercise categorisation according to body parts (e.g shoulder, tight and bicep)
 - For calculation is to be confirmed by Brad.
+
+07-May-2018
+- databse draft decided ( in /frame)
+- front-end updated
+- calculation formulation decided
