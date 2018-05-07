@@ -5,8 +5,16 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// require('dotenv').config();
 
+const knex = require('knex')({
+    // Config containing the information of the database connection.
+    client: 'postgresql',
+    connection: {
+        database: process.env.DB_NAME,
+        user:     process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD
+    }
+});
 
 
 var app = express();
