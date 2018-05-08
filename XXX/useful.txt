@@ -1,0 +1,61 @@
+- Description of a calories calulator 
+    http://www.exercise4weightloss.com/exercise-calorie-calculator.html
+
+- Formula
+    Total Calories Burned = Duration (in minutes) X (MET X 3.5 X weight in kg)/200
+
+- Basal Metabolic Rate (BMR)
+    https://www.builtlean.com/2010/03/14/how-to-calculate-your-calorie-burn/
+    BMR Men: = 66 + (6.23 X weight in pounds) + (12.7 X height in inches) – (6.8 X age)
+    BMR Women: = 655 + (4.35 X weight in pounds) + (4.7 X height in inches) – (4.7 X age)
+
+- What are calories?
+    https://www.healthstatus.com/calculate/cbc
+
+- Calories Burned by Occupation
+    https://www.fitnessblender.com/articles/calories-burned-by-occupation-how-many-calories-does-my-job-burn
+
+- Muscles group list
+    http://www.nutristrategy.com/weighttrain3.htm
+
+- Detail explanations on different training
+    https://www.exrx.net/WeightTraining/Instructions
+
+- Brunch of fitness calculators
+    https://www.bodybuilding.com/content/a-large-selection-of-easy-to-use-fitness-calculators.html
+
+- Food calories API
+    https://www.nutritionix.com/consumer
+
+- MET 2011 
+    http://download.lww.com/wolterskluwer_vitalstream_com/permalink/mss/a/mss_43_8_2011_06_13_ainsworth_202093_sdc1.pdf
+
+
+- Logged in user
+    - age, gender, w, h (basic user info)
+    - occupation and activity level
+    - !preferred muscles group (upper body/ back/ abdominal/ lower body)
+    - exercise type (aerobic/ muscle)
+    - goal weight, goal date
+
+
+- Casual user
+    - food name 
+    - weight 
+    - duration 
+
+    - exercise type -> basketball/ swimming/.... /exercise 
+
+    - !preferred muscles group 
+
+
+- List
+    - swimming
+    - running
+    - cycling
+    - rope-jumping
+    - exercise
+        - dumbell 
+        - squat 
+        - lunge 
+        - 
