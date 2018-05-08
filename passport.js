@@ -35,7 +35,7 @@ module.exports = (app) => {
 
     passport.use('local-login', new LocalStrategy(
         (email, password, done) => {
-            let user = users.find(knex('user_profile').where({ email: email, password: password }).select('*')).then(function(array){
+            knex('user_profile').where({ email: email, password: password }).select('*').then(function(array){
                 let checkpw = array;
 
                 bcrypt.checkPassword(password, array)

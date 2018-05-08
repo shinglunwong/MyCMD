@@ -29,9 +29,9 @@ exports.up = function(knex, Promise) {
         table.text("gender").notNullable();
         table.integer('age').notNullable();
       table.integer('exercise_type_key').unsigned();
-      table.foreign('exercise_type_key').references('exercise_type.id');
+      table.foreign('exercise_type_key').references('id').inTable('exercise_type');
       table.integer('muscles_gp_key').unsigned();
-      table.foreign('muscles_gp_key').references('muscles_gp.id');
+      table.foreign('muscles_gp_key').references('id').inTable('muscles_gp');
     });
   };
   
