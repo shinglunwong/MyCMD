@@ -1,7 +1,8 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('exercise_table',(table)=>{
         table.increments();
-        table.integer("description");
+        table.text('name')
+        table.text("description");
         table.integer("met_key").unsigned();;
         table.foreign('met_key').references('met.id');
         table.integer("exercise_type_key").unsigned();

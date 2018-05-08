@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('muscles_gp').insert([
-        {group: 'abs'},
-        {group: 'bicep'},
-        {group: 'tricep'}
+        {id:1, group: 'abs'},
+        {id:2, group: 'bicep'},
+        {id:3, group: 'tricep'}
       ]);
     });
 };

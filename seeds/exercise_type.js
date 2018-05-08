@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('exercise_type').insert([
-        {type: 'aerobic'},
-        {type: 'endurance'},
+        {id:1,type: 'aerobic'},
+        {id:2,type: 'endurance'},
       
       ]);
     });

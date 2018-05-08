@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('user_profile').insert([
-        {id:1, weight: '100',height:'180',gender:'M',age:'30',exercise_type_key:'1',muscles_gp_key:'2'},
+        {id:1, email:'tom@gmail.com', password:'tom',weight: '100',height:'180',gender:'M',age:'30'/*,exercise_type_key:'1',muscles_gp_key:'2'*/},
       ]);
     });
 };
