@@ -8,17 +8,17 @@ module.exports = (express) => {
             return next();
         }
 
-        res.redirect('/login');
+        res.redirect('/signup');
     }
 
-    // router.get('/signup', (req, res) => {
-    //     res.sendFile(__dirname + '/signup.html');
-    // });
+    router.get('/signup', (req, res) => {
+        res.sendFile(__dirname + '/signup.html');
+    });
     
-    // router.post('/signup', passport.authenticate('local-signup', {
-    //     successRedirect: '/',
-    //     failureRedirect: '/error'
-    // }));
+    router.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/',
+        failureRedirect: '/error'
+    }));
 
     // router.get('/login', (req, res) => {
     //     res.sendFile(__dirname + '/login.html');
@@ -34,7 +34,7 @@ module.exports = (express) => {
     });
 
     router.get('/', isLoggedIn, (req, res) => {
-        res.sendFile(__dirname + '/index.html');
+        res.sendFile(__dirname + '/signup.html');
     });
 
     return router;

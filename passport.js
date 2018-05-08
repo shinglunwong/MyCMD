@@ -24,7 +24,7 @@ module.exports = (app) => {
                                 age: age
                             };
                             // users.push(newUser);   push data to users.js && we have not users.js files
-                            knex('user_profile').insert({newUser}); //
+                            knex('user_profile').insert({newUser});
                             done(null, newUser);
                         })
                         .catch(err => console.log(err));
