@@ -35,39 +35,6 @@ module.exports = (app, knex) => {
     
         })
     );
-    // passport.use('local-signup', new LocalStrategy({
-    //         passReqToCallback: true,
-    //     },
-    //     (req, email, password, done) => {
-    //         console.log("enter local signup")
-    //         knex('user_profile').where({ email: email }).first('email').then(function(user){
-    //             if (user) {
-    //                 console.log("enter first condition")
-                    
-    //                 return done(null, false, { message: 'Email already taken' });
-    //             } else {
-    //                 console.log("enter second condition")
-    //                 bcrypt.hashPassword(password)
-    //                     .then(hash => {
-    //                         const newUser = {
-    //                             email: email,
-    //                             password: hash,
-    //                             weight: req.weight,
-    //                             height: req.height,
-    //                             gender: req.gender,
-    //                             age: req.age
-    //                         };
-    //                         console.log(email, password, req.weight, req.height, req.gender, req.age)
-    //                         knex('user_profile').insert({newUser});
-    //                         done(null, newUser);
-    //                     })
-    //                     .catch(err => console.log(err));
-    //             }
-    //         });
-    //     }
-    // ));
-
-    
 
     passport.use('local-login', new LocalStrategy(
         async (email, password, done) => {
