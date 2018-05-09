@@ -8,7 +8,7 @@ module.exports = (express) => {
             return next();
         }
 
-        res.redirect('/signup');
+        res.redirect('/login');
     }
 
     router.get('/signup', (req, res) => {
@@ -20,21 +20,25 @@ module.exports = (express) => {
         failureRedirect: '/error'
     }));
 
-    // router.get('/login', (req, res) => {
-    //     res.sendFile(__dirname + '/login.html');
-    // });
+    router.get('/login', (req, res) => {
+        res.sendFile(__dirname + '/login.html');
+    });
 
-    // router.post('/login', passport.authenticate('local-login', {
-    //     successRedirect: '/',
-    //     failureRedirect: '/error'
-    // }));
+    router.post('/login', passport.authenticate('local-login', {
+        successRedirect: '/yes',
+        failureRedirect: '/error'
+    }));
+
+    router.get('/yes', (req, res) => {        //succeed in login
+        res.send('logged in!');
+    });
 
     router.get('/error', (req, res) => {
         res.send('You are not logged in!');
     });
 
     router.get('/', isLoggedIn, (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
+        res.sendFile(__dirname + '/login.html');
     });
 
     return router;

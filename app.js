@@ -29,7 +29,7 @@ var app = express();
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(bodyPaser.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //???????????
 
 passport(app, knex);
 // app.use('/', indexRouter);
