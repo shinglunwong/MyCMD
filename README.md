@@ -39,11 +39,7 @@ setup user table containing
 
 08-May-2018
 - seed file done and fk link-up
-<<<<<<< HEAD
 - passport local login and bcrypt working okay, only those users with has can login
-=======
-- passport local login working okay
->>>>>>> 03737f7e2205f204697be7dcaa226c7f2db7be86
 - Brad shifted to front-end
 - Parker set up router and link up server and db
 - Shawn is on back-end
