@@ -8,7 +8,7 @@ module.exports = (express) => {
             return next();
         }
 
-        res.redirect('/login');
+        res.redirect('/signup');
     }
 
     router.get('/signup', (req, res) => {
@@ -38,7 +38,7 @@ module.exports = (express) => {
     });
 
     router.get('/', isLoggedIn, (req, res) => {
-        res.sendFile(__dirname + '/login.html');
+        res.sendFile(__dirname + '/signup.html');
     });
 
     return router;
