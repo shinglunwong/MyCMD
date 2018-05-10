@@ -1,32 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
 </head>
+<style>
+    strong {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+    }
+</style>
+
 <body>
-    <form action="/check">
-        <div>
-            <label>Check</label>
-                <textarea name="check" placeholder="input something here.." id="checkup"></textarea>
-            
-        </div>
-        <div>
-            <label for="">
-                <input type="submit" name="checkup">
-            </label>
-        </div>
-    </form>
+    <!-- <form action="/check"> -->
+    <div>
+        <label>Check</label>
+        <textarea name="check" placeholder="input something here.." id="checkup"></textarea>
+
+    </div>
+    <div>
+        <label for="">
+            <button type="submit" name="checkup" id='check' class="addresult">click</button>
+        </label>
+    </div>
+    <!-- </form> -->
     <div>
         <h2>total calories</h2>
-        <div>
+        <div id="addresult">
             <strong>
                 <span id="cal"></span>
             </strong>
         </div>
     </div>
 </body>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.addresult').click(function (e) {
+            e.preventDefault();
+
+            let val = $('textarea#checkup').val();
+            if (val === '') {
+                return
+            }
+            $('textarea').val('');
+            axios({
+                    url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+                    method: 'post',
+                    headers: {
+                        'x-app-key': '0cc29202aed5d97a53a5d8a530346f87',
+                        'x-app-id': 'a0662efe',
+                        'Content-ype': 'application/json'
+                    },
+                    data: {
+                        "query": val
+                    },
+                    responseType: 'json'
+                }).then(body => {
+                    console.log(body.data)
+                    let b = [];
+                    console.log(JSON.stringify(body.data));
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            // axios.post('/api/notes/', {
+            //     note: val
+            // }).then(function(res) {
+            //     reloadNotes(res.data);
+            // });
+        });
+
+    });
+</script>
+
 </html>

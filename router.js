@@ -41,10 +41,7 @@ module.exports = (express) => {
     });
 
     router.get('/', (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
-    });
-    router.get('/test', (req, res) => {
-        res.sendFile(__dirname + '/apitesting.html');
+        res.sendFile(__dirname + '/index.html');
     });
 
     return router;

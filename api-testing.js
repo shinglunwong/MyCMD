@@ -1,6 +1,6 @@
 const axios = require('axios');
 const apikey = require('./config/key').nutritionix
-const query = require('./query')
+
 
 
 axios({
