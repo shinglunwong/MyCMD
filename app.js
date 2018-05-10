@@ -20,13 +20,11 @@ const knex = require('knex')({
 
 var app = express();
 
-app.use(bodyPaser.urlencoded({ extended: false }))
-app.use(1(path.join(__dirname, 'public'))); //???????????
+app.use(bodyPaser.urlencoded({ extended: false }))//必要
+app.use(express.static('public'));//必要：a website with many static files that you want to serve, like CSS files, HTML files or image files
 
 passport(app, knex);
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 app.use('/',router);
 app.listen(8080);
 
-// module.exports = app;
+module.exports = app;

@@ -12,7 +12,7 @@ module.exports = (app, knex) => {
         },
         async (req, email, password, done) => {
             try{
-                let users = await knex('user_table').where({email:email});
+                let users = await knex('user').where({email:email});
                 if (users.length > 0) {
                     return done(null, false, { message: 'Email already taken' });
                 }
@@ -25,7 +25,7 @@ module.exports = (app, knex) => {
                     gender: req.body.gender,
                     age: req.body.age
                 };
-                await knex('user_profile').insert(newUser);
+                await knex('user').insert(newUser);
                 let keepuser = [email,req.body.weight,req.body.gender,req.body.height,req.body.age];
                 done(null, keepuser);
             }catch(err){
@@ -38,7 +38,7 @@ module.exports = (app, knex) => {
     passport.use('local-login', new LocalStrategy(
         async (email, password, done) => {
             try{
-                let users = await knex('user_table').where({email:email})
+                let users = await knex('user').where({email:email})
                 if(users.length == 0){
                     return done(null, false, { message: 'Incorrect credentials' });
                 }
@@ -60,7 +60,7 @@ passport.serializeUser((keepuser, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    let users = await knex('user_table').where({id:id});
+    let users = await knex('user').where({id:id});
     if (users.length == 0) {
         return done(new Error(`Wrong user id ${id}`));
     }
