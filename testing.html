@@ -72,8 +72,8 @@
                     responseType: 'json'
                 }).then(body => {
                     console.log(body.data)
-                    let b = [];
-                    console.log(JSON.stringify(body.data));
+                    let b = JSON.stringify(body.data.foods[0].nf_calories);
+                    $('#cal').html(`${b}`);
                 })
                 .catch(err => {
                     console.log(err);
