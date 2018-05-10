@@ -1,0 +1,14 @@
+<form action="./apitesting" method="POST"></form>
+<button>click</button>
+</form>
+<script>
+    $("button").click(function(){
+    $post("./apitesting",
+    {
+        input : "egg"
+    },
+    function(data){
+        alert(data);
+    });
+});
+</script>

@@ -9,7 +9,7 @@ axios({
         "Content-Type": "application/json",
     },
     data: {
-        "query":"2 eggs"
+        "query": input
        },
     json: true 
  }).then(body => {

@@ -37,8 +37,11 @@ module.exports = (express) => {
         res.send('You are not logged in!');
     });
 
-    router.get('/', isLoggedIn, (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
+    // router.get('/', isLoggedIn, (req, res) => {
+    //     res.sendFile(__dirname + '/signup.html');
+    // });
+    router.get('/', (req, res) => {
+        res.sendFile(__dirname + '/apitesting.html');
     });
 
     return router;
