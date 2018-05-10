@@ -43,3 +43,10 @@ setup user table containing
 - Brad shifted to front-end
 - Parker set up router and link up server and db
 - Shawn is on back-end
+
+09-May-2018
+- wireframe and database structure redesigned, muscles_gp removed, whole thing simplified
+- product MVP direction is changed, this website only consider calories , no other function until primary one has been finished
+- MVP (minimum viable product) 
+- => display users' calories consumed and burnt in a chart
+- => users can input exeercise and food in text-area, through server to call api to get calories, then save to db
