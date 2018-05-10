@@ -8,7 +8,7 @@ module.exports = (express) => {
             return next();
         }
 
-        res.redirect('/signup');
+        res.redirect('/');
     }
 
     router.get('/signup', (req, res) => {
@@ -23,9 +23,12 @@ module.exports = (express) => {
     router.get('/login', (req, res) => {
         res.sendFile(__dirname + '/login.html');
     });
+    router.get('/testing',(req, res) => {
+        res.sendFile(__dirname + '/testing.html');
+    });
 
     router.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/yes',
+        successRedirect: '/testing',
         failureRedirect: '/error'
     }));
 
@@ -37,8 +40,8 @@ module.exports = (express) => {
         res.send('You are not logged in!');
     });
 
-    router.get('/', isLoggedIn, (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
+    router.get('/', (req, res) => {
+        res.sendFile(__dirname + '/index.html');
     });
 
     return router;

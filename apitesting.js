@@ -1,15 +1,14 @@
 const axios = require('axios');
+const apikey = require('./config/key').nutritionix
+const query = require('./query')
+
 
 axios({
     url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
     method: 'post',
-    headers: {
-        "x-app-id": "56cc25a1",
-        "x-app-key": "74cb7ba3d3897d57092f67f6bde7cafe",
-        "Content-Type": "application/json",
-    },
+    headers: apikey,
     data: {
-        "query":"2 eggs"
+        "query": query
        },
     json: true 
  }).then(body => {

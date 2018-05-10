@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/check">
+        <div>
+            <label>Check</label>
+                <textarea name="check" placeholder="input something here.." id="checkup"></textarea>
+            
+        </div>
+        <div>
+            <label for="">
+                <input type="submit" name="checkup">
+            </label>
+        </div>
+    </form>
+    <div>
+        <h2>total calories</h2>
+        <div>
+            <strong>
+                <span id="cal"></span>
+            </strong>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>

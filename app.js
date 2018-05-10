@@ -25,6 +25,6 @@ app.use(express.static('public'));//必要：a website with many static files th
 
 passport(app, knex);
 app.use('/',router);
-app.listen(8080);
+app.listen(8080,(console.log('port is on 8080')));
 
 module.exports = app;

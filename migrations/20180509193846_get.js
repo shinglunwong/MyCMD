@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         table.timestamp('created_time').defaultTo(knex.fn.now());
         table.decimal('record');
         table.integer('user_idkey').unsigned();
-        table.foreign('user_idkey').references('id').inTable('user');
+        table.foreign('user_idkey').references('id').inTable('user_profile');
     });
   };
   
