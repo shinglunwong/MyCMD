@@ -27,12 +27,12 @@
     <!-- <form action="/check"> -->
     <div>
         <label>Check</label>
-        <textarea name="check" placeholder="input something here.." id="checkup"></textarea>
+        <textarea name="check" placeholder="input something here.." class="checkup"></textarea>
 
     </div>
     <div>
         <label for="">
-            <button type="submit" name="checkup" id='check' class="addresult">click</button>
+            <button type="submit" name="checkup" class="addresult">click</button>
         </label>
     </div>
     <!-- </form> -->
@@ -47,45 +47,6 @@
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-        $('.addresult').click(function (e) {
-            e.preventDefault();
-
-            let val = $('textarea#checkup').val();
-            if (val === '') {
-                return
-            }
-            $('textarea').val('');
-            axios({
-                    url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
-                    method: 'post',
-                    headers: {
-                        'x-app-key': '0cc29202aed5d97a53a5d8a530346f87',
-                        'x-app-id': 'a0662efe',
-                        'Content-ype': 'application/json'
-                    },
-                    data: {
-                        "query": val
-                    },
-                    responseType: 'json'
-                }).then(body => {
-                    console.log(body.data)
-                    let b = JSON.stringify(body.data.foods[0].nf_calories);
-                    $('#cal').html(`${b}`);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-            // axios.post('/api/notes/', {
-            //     note: val
-            // }).then(function(res) {
-            //     reloadNotes(res.data);
-            // });
-        });
-
-    });
-</script>
+<script src="./testing.js"></script>
 
 </html>
