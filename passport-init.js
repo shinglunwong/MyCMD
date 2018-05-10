@@ -12,7 +12,7 @@ module.exports = (app, knex) => {
         },
         async (req, email, password, done) => {
             try{
-                let users = await knex('user_profile').where({email:email});
+                let users = await knex('user_table').where({email:email});
                 if (users.length > 0) {
                     return done(null, false, { message: 'Email already taken' });
                 }
@@ -38,7 +38,7 @@ module.exports = (app, knex) => {
     passport.use('local-login', new LocalStrategy(
         async (email, password, done) => {
             try{
-                let users = await knex('user_profile').where({email:email})
+                let users = await knex('user_table').where({email:email})
                 if(users.length == 0){
                     return done(null, false, { message: 'Incorrect credentials' });
                 }
@@ -60,7 +60,7 @@ passport.serializeUser((keepuser, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    let users = await knex('user_profile').where({id:id});
+    let users = await knex('user_table').where({id:id});
     if (users.length == 0) {
         return done(new Error(`Wrong user id ${id}`));
     }
@@ -70,52 +70,3 @@ passport.deserializeUser(async (id, done) => {
 };
 
 
-
-
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
-// const knex = require('knex')({
-//     client: 'postgresql',
-//     connection: {
-//         database: process.env.DB_NAME,
-//         user:     process.env.DB_USERNAME,
-//         password: process.env.DB_PASSWORD
-//     }
-// });
-
-// module.exports = (app) => {
-//     app.use(passport.initialize());
-//     app.use(passport.session());
-
-//     passport.use('local-login', new LocalStrategy(
-//         async (email, password, done) => {
-//             try{
-//                 let users = await knex('user_profile').where({email:email})
-//                 if(users.length == 0){
-//                     return done(null, false, { message: 'Incorrect email' });
-//                 }
-//                 let user = users[0];
-//                 if (user.password === password) {
-//                     return done(null, user);
-//                 }else{
-//                     return done(null, false, { message: 'Incorrect credentials.' });
-//                 }
-//             }catch(err){
-//                 return done(err);
-//             }
-//         }
-//     ));
-
-//     passport.serializeUser((keepuser, done) => {
-//         done(null, keepuser);
-//     });
-
-//     passport.deserializeUser(async (id, done) => {
-//         let users = await knex('user_profile').where({id:id});
-//         if (users.length == 0) {
-//             return done(new Error(`Wrong user id ${id}`));
-//         }
-//         let user = users[0];
-//         return done(null, user);
-//     });
-// };
