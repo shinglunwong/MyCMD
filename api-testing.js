@@ -8,7 +8,7 @@ axios({
     method: 'post',
     headers: apikey,
     data: {
-        "query": query
+        "query":"2 eggs"
        },
     json: true 
  }).then(body => {
