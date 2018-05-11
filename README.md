@@ -50,3 +50,6 @@ setup user table containing
 - MVP (minimum viable product) 
 - => display users' calories consumed and burnt in a chart
 - => users can input exeercise and food in text-area, through server to call api to get calories, then save to db
+
+10-May-2018
+- cal api okay
