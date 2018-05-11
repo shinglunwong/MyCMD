@@ -9,7 +9,8 @@ const knex = require('knex')({
     }
 });
 
-knex('user_profile').where({email:'tom'}).select('*').then((abc)=>
-console.log(abc)
-
-);
+ knex('activity').insert([
+          {id: 11, name: 'basketballs',MET:'6.5'},
+        ]).then();
+      
+  // .thn() => sql (;)

@@ -4,17 +4,11 @@ var cookieSession = require('cookie-session')
 var passport = require('./passport-init');
 var app = express();
 const bodyPaser = require('body-parser');
-require('dotenv').config();
 
-const knex = require('knex')({
-    // Config containing the information of the database connection.
-    client: 'postgresql',
-    connection: {
-        database: process.env.DB_NAME,
-        user: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD
-    }
-});
+require('dotenv').config();
+const knexConfig = require('./knexfile').development;
+const knex = require('knex')(knexConfig);
+
 
 const router = require('./router')(express, knex);
 app.use(cookieSession({
