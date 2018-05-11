@@ -1,13 +1,245 @@
 <html>
 
 <head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regular-Exercise</title>
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+  <!-- Navagation bar -->
+  <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+    <a class="navbar-brand" href="#">RegExe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item collapse navbar-collapse">
+          <a class="nav-link" href="#tools">Tools</a>
+        </li>
+        <li class="nav-item collapse navbar-collapse">
+          <a class="nav-link" href="#contact-us">Contact Us</a>
+        </li>
+        <li class="nav-item collapse navbar-collapse">
+          <a class="nav-link" href="#login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="container">
+    <div class="row bg">
+      <!-- left panel (title) -->
+      <div class="col-lg-6 col-12 left-panel">
+        <p>Reg exe</p>
+        <hr>
+        <p>your healthy lifestyle assistant.</p>
+      </div>
+      <!-- right panel (login && sign up) -->
+      <div class="col-lg-6 col-12 right-panel">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-selected="true">Login</a>
+            <a class="nav-item nav-link" id="nav-sign-up-tab" data-toggle="tab" href="#nav-sign-up" role="tab" aria-selected="false">Sign Up</a>
+          </div>
+        </nav>
+        <!-- login -->
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-home-tab">
+            <form>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="username">Username: </label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="password">Password: </label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-default">Login</button>
+              <a href="haha">forget password?</a>
+            </form>
+          </div>
+          <!-- sign up -->
+          <div class="tab-pane fade" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab">
+            <form>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="username">Username: </label>
+                  <input type="text" class="form-control form-control-sm" id="username">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="email-input">Email:</label>
+                  <input type="email" class="form-control form-control-sm">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="password">Password: </label>
+                  <input type="password" class="form-control form-control-sm" id="password">
+                </div>
+                <div class="col-xs-4">
+                  <label for="password">Re-Enter Password: </label>
+                  <input type="password" class="form-control form-control-sm" id="password">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-default">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <!-- what is calories > how to remain fit (explain exercise) > HIIT for max effect -->
+  <div class="container">
+    <div class="row">
+      <div class="center-text">
+        <h2>What is Calories?</h2>
+        <p>A calorie is a measure of energy, just as a pound is a measure of weight and a mile is a measure of distance. So
+          the amount of energy you exert in doing an activity is measured by the calories burn rate.</p>
+        <p>How many calories to lose one pound? You have to burn 3500 calories to lose one pound of weight. This is why you
+          should use a calorie counter regularly. </p>
+      </div>
+    </div>
+    <div class="row purple">
+      <div class="col-md-6 hover-effect center-text">
+        <h3 class="dark-purple">How to Lose Weight?</h3>
+        <img src="images/food-exercise.png" class="index-image">
+        <div class="middle">
+          <div class="text">
+            <p>
+              In order to lose weight you need to create a calorie deficit, meaning you must consume fewer calories than you
+              burn. You will burn calories through exercise and your basal metabolic rate.   
+            </p>
+            <p>
+                The more you exercise the more calories
+                you burn as well as increase your BMR. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 hover-effect center-text">
+        <h3 class="dark-purple">Best Way to Burn Calories</h3>
+        <img src="images/2.png" class="index-image">
+        <div class="middle">
+          <div class="text">
+            <p>
+                High Intensity Interval Training or HIIT is a type of workout where you give maximum effort through quick, intense
+                bursts of exercise followed by short recovery periods. HIIT workouts train and condition both your aerobic and
+                anaerobic energy systems. 
+            </p>
+            <p>
+                HIIT workouts get your heart rate up and improve your cardiovascular fitness level
+                while burning more fat and calories in less time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tools -->
+  <div class="container">
+    <div class="center-text">
+      <h2>Tools for your health</h2>
+      <p>Using an exercise calorie calculator will help you to track your daily calories burned through exercise to ensure you
+        have created a calorie defict. In addition to tracking the exercise calories burned you will also need to know the
+        approximate calories you burn from your BMR. With these two components, you will now have a total calories burned
+        for the day.</p>
+      <div class="row">
+        <div class="col-lg-4 col-12">
+          <p>first</p>
+        </div>
+        <div class="col-lg-4 col-12">
+          <p>second</p>
+        </div>
+        <div class="col-lg-4 col-12">
+          <p>third</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Us -->
+  <div class="container">
+    <h2>Contact us</h2>
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <p>Development Team</p>
+        <div class="namecard">
+          <img src="images/jumbo.jpg" class="profile-icon">
+          <div>
+            <p class="name">Shawn</p>
+            <p class="title">Database Engineer</p>
+          </div>
+        </div>
+        <div class="namecard">
+          <img src="images/jumbo.jpg" class="profile-icon">
+          <div>
+            <p class="name">Parker</p>
+            <p class="title">System Administrator</p>
+          </div>
+        </div>
+        <div class="namecard">
+          <img src="images/jumbo.jpg" class="profile-icon">
+          <div>
+            <p class="name">Brad</p>
+            <p class="title">Platform Manager</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12">
+        <form>
+          <div class="form-group">
+            <label for="target-input">To:</label>
+            <input type="email" class="form-control" id="target-input" placeholder="Click the namecard to select">
+          </div>
+          <div class="form-group">
+            <label for="email-input">From:</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Please enter your email">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Please enter your queries"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer center-text">
+    <p class="disclaimer">Disclaimer: All information is for use in adults defined as individuals 18 years of age or older and not by younger people,
+      or pregnant or breastfeeding women. A health care provider who has examined you and knows your medical history is the
+      best person to diagnose and treat your health problem. If you have specific health questions, please consult your health
+      care provider.</p>
+    <p>© 2018 Regular-Exercise. All rights reserved.</p>
+  </div>
+
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="javascripts/index.js"></script>
 </body>
 
 </html>
