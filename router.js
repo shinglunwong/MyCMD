@@ -12,24 +12,24 @@ module.exports = (express, knex) => {
         res.redirect('/');
     }
 
-    router.get('/signup', (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
+    router.get('/signed', (req, res) => {
+        res.send('signed in !');
     });
     
     router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
+        successRedirect: '/signed',
         failureRedirect: '/error'
     }));
 
-    router.get('/login', (req, res) => {
-        res.sendFile(__dirname + '/login.html');
+    router.get('/', (req, res) => {
+        res.sendFile(__dirname + '/index.html');
     });
     router.get('/testing',(req, res) => {
         res.sendFile(__dirname + '/testing.html');
     });
 
     router.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/testing',
+        successRedirect: '/logged',
         failureRedirect: '/error'
     }));
 
@@ -64,9 +64,12 @@ module.exports = (express, knex) => {
     });
 
     router.get('/error', (req, res) => {
-        res.send('You are not logged in!');
+        res.send('failed');
     });
 
+    router.get('/logged', (req,res) =>{
+        res.send('youre logged in !')
+    })
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
