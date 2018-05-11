@@ -58,4 +58,4 @@ setup user table containing
 ##11-May-2018
 - index page updated with sucessful log-in and sign-up
 - now nutritionix api only can be called through server => client post request -> server received and post request api -> back to client
-- 
+- passport-session fixed
