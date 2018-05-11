@@ -1,13 +1,12 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('exercise_type').del()
+  return knex('exe_type').del()
     .then(function () {
       // Inserts seed entries
-      return knex('exercise_type').insert([
-        {type: 'aerobic'},
-        {type: 'endurance'},
-      
+      return knex('exe_type').insert([
+        {id: 1, name: 'aerobic'},
+        {id: 2, name: 'endurance'}
       ]);
     });
 };

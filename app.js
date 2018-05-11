@@ -1,10 +1,11 @@
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var cookieParser = require('cookie-parser');
+var passport = require('./passport-init');
+var app = express();
+const bodyPaser = require('body-parser');
+const router = require('./router')(express);
+require('dotenv').config();
 
 const knex = require('knex')({
     // Config containing the information of the database connection.
@@ -19,13 +20,11 @@ const knex = require('knex')({
 
 var app = express();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyPaser.urlencoded({ extended: false }))//必要
+app.use(express.static('public'));//必要：a website with many static files that you want to serve, like CSS files, HTML files or image files
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+passport(app, knex);
+app.use('/',router);
+app.listen(8080,(console.log('port is on 8080')));
 
 module.exports = app;
