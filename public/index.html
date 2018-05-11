@@ -53,49 +53,81 @@
         <!-- login -->
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-home-tab">
-            <form>
+            <form action="/login" method='POST'>
               <div class="form-row">
                 <div class="col-xs-4">
-                  <label for="username">Username: </label>
-                  <input type="text" class="form-control" id="username">
+                  <label for="name">Email: </label>
+                  <input type="email" class="form-control" id="username" name="username">
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-xs-4">
                   <label for="password">Password: </label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" name="password">
                 </div>
               </div>
-              <button type="submit" class="btn btn-default">Login</button>
+              </br>
+              <button type="submit" class="btn btn-default" value="login">Login</button>
               <a href="haha">forget password?</a>
+              <!-- a link -->
             </form>
           </div>
           <!-- sign up -->
           <div class="tab-pane fade" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab">
-            <form>
-              <div class="form-row">
+            <form action="/signup" method="post">
+              <!-- <div class="form-row">
                 <div class="col-xs-4">
                   <label for="username">Username: </label>
-                  <input type="text" class="form-control form-control-sm" id="username">
+                  <input type="text" class="form-control form-control-sm" id="username" name="username">
                 </div>
-              </div>
+              </div> -->
               <div class="form-row">
                 <div class="col-xs-4">
-                  <label for="email-input">Email:</label>
-                  <input type="email" class="form-control form-control-sm">
+                  <label for="username">Email:</label>
+                  <input type="text" class="form-control form-control-sm" name="username">
                 </div>
               </div>
               <div class="form-row">
+                <!-- pw form row -->
                 <div class="col-xs-4">
                   <label for="password">Password: </label>
-                  <input type="password" class="form-control form-control-sm" id="password">
+                  <input type="password" class="form-control form-control-sm" name="password">
                 </div>
-                <div class="col-xs-4">
+                <!-- <div class="col-xs-4">
                   <label for="password">Re-Enter Password: </label>
                   <input type="password" class="form-control form-control-sm" id="password">
+                </div> -->
+              </div>
+              <!-- pasword form row -->
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="age">Age:</label>
+                  <input type="number" class="form-control form-control-sm" name="age">
                 </div>
               </div>
-              <button type="submit" class="btn btn-default">Sign up</button>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="gender">Gender:</label>
+                  <select name="gender" id="" class="form-control form-control-sm">
+                    <option type="text" name="gender" value="M">M</option>
+                    <option type="text" name="gender" value="F">F</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="weight">Weight:</label>
+                  <input type="number" class="form-control form-control-sm" name="weight">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-xs-4">
+                  <label for="height">Height:</label>
+                  <input type="number" class="form-control form-control-sm" name="height">
+                </div>
+              </div>
+              </br>
+              <button type="submit" class="btn btn-default" value="sign up">Sign up</button>
             </form>
           </div>
         </div>
@@ -122,12 +154,11 @@
         <div class="middle">
           <div class="text">
             <p>
-              In order to lose weight you need to create a calorie deficit, meaning you must consume fewer calories than you
-              burn. You will burn calories through exercise and your basal metabolic rate.   
+              In order to lose weight you need to create a calorie deficit, meaning you must consume fewer calories than you burn. You
+              will burn calories through exercise and your basal metabolic rate.
             </p>
             <p>
-                The more you exercise the more calories
-                you burn as well as increase your BMR. 
+              The more you exercise the more calories you burn as well as increase your BMR.
             </p>
           </div>
         </div>
@@ -138,13 +169,13 @@
         <div class="middle">
           <div class="text">
             <p>
-                High Intensity Interval Training or HIIT is a type of workout where you give maximum effort through quick, intense
-                bursts of exercise followed by short recovery periods. HIIT workouts train and condition both your aerobic and
-                anaerobic energy systems. 
+              High Intensity Interval Training or HIIT is a type of workout where you give maximum effort through quick, intense bursts
+              of exercise followed by short recovery periods. HIIT workouts train and condition both your aerobic and anaerobic
+              energy systems.
             </p>
             <p>
-                HIIT workouts get your heart rate up and improve your cardiovascular fitness level
-                while burning more fat and calories in less time.
+              HIIT workouts get your heart rate up and improve your cardiovascular fitness level while burning more fat and calories in
+              less time.
             </p>
           </div>
         </div>
