@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         $('textarea').val('');
         axios({
-                url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+                url: 'https://trackapi.nutritionix.com/v2/natural/instant',
                 method: 'post',
                 headers: apikey,
                 data: {
