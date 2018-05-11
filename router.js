@@ -1,7 +1,7 @@
 const passport = require('passport');
 const axios = require('axios');
 
-module.exports = (express) => {
+module.exports = (express, knex) => {
     const router = express.Router();
 
     function isLoggedIn(req, res, next) {
@@ -35,8 +35,8 @@ module.exports = (express) => {
 
     router.post('/api/xxx', (req, res) => {
 
-        console.log(req.body); //testing
-        
+        console.log(req.user); //testing
+         
         axios({
             url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
             method: 'post',
@@ -50,11 +50,17 @@ module.exports = (express) => {
             },
             responseType: 'json'
         }).then((body) => {
-
             res.json(body.data.foods[0].nf_calories);
+
         }).catch((err) => {
             console.log(err)
         })
+    });
+    router.post('/api/save-result', (req, res) => {
+        console.log(req.user);
+        console.log(req.body.calories); //testing
+               knex('get').insert({
+                  record: parseFloat(req.body.calories), user_idkey: req.user.id}).then() //.then() is for insert the result
     });
 
     router.get('/error', (req, res) => {

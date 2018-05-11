@@ -59,13 +59,13 @@ passport.serializeUser((keepuser, done) => {
     done(null, keepuser);
 });
 
-passport.deserializeUser(async (id, done) => {
-    let users = await knex('user_profile').where({id:id});
+passport.deserializeUser(async (user, done) => {
+    let users = await knex('user_profile').where({id:user.id});
     if (users.length == 0) {
         return done(new Error(`Wrong user id ${id}`));
     }
-    let user = users[0];
-    return done(null, user);
+    let selectedUser = users[0];
+    return done(null, selectedUser);
 });
 };
 

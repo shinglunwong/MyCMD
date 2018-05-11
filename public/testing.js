@@ -5,7 +5,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         let val = $('textarea.checkup').val();
-        $('textarea').val('');
+        $('textarea').val(''); //('') <-- clear value in DOM
         $.ajax({
             url: '/api/xxx',
             method: 'post',
@@ -13,23 +13,27 @@ $(document).ready(function () {
                 "query": val
             }
         }).done((data) => {
+            $('#cal').html(`Calories: <span id='calories'>${data}</span>`);
+
+        }).fail((err) => {
+            console.log(err);
+        })    
+    });
+
+    $('#save-calories').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/api/save-result',
+            method: 'post',
+            data: {
+                "calories": $('#calories').text()
+            }
+        }).done((data) => {
             $('#cal').html(`Calories: ${data}`);
+
         }).fail((err) => {
             console.log(err);
         })
-    //    .then(((body) => {
-    //         console.log(body)
-    //         let b = JSON.stringify(body.foods[0].nf_calories);
-    //         $('#cal').html(`Calories: ${b}`);
-    //         return b;
-    //     }).then( b =>{
-    //         $('#save-calories').click(function () {
-    //             if (b.length > 0) {
-    //                 knex('get').insert({ record: b });
-    //             }
-    //         })
-    //     }).catch(err => {
-    //             console.log(err);
-    //         });
     });
 });
