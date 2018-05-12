@@ -55,8 +55,12 @@ $(document).ready(function () {
             method: 'get',
 
         }).done((data) => {
-            console.log(data);
-            $('#getExe').children().remove();
+            console.log(data[0].name);
+            $('select#check_exe').children().remove();
+            $( 'select#check_exe').append(`
+            <option></option>
+            
+            `);
             
         })
         .fail((err) => {

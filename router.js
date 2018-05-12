@@ -83,8 +83,8 @@ module.exports = (express, knex) => {
 
     router.get('/getExe',(req,res) => {
         knex.select('id','name').from('activity')
-            .then((body) => {
-                res.json(body);
+            .then((data) => {
+                res.json(data);
     
             }).catch((err) => {
                 console.log(err)
