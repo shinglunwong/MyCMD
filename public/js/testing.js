@@ -75,8 +75,8 @@ $(document).ready(function () {
 
         }).done((data)=>{
             //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
-            let sum = duration*(data[0].weight*met*3.5)/200
-            console.log(duration*(data[0].weight*met*3.5)/200);
+            let sum = duration*(data*met*3.5)/200
+            console.log(duration*(data*met*3.5)/200);
             $('#showCal').html(`total calories you burnt : ${sum}`);
         })
         .fail((err) => {
