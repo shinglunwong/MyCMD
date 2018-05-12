@@ -32,24 +32,32 @@ setup user table containing
 - exercise categorisation according to body parts (e.g shoulder, tight and bicep)
 - For calculation is to be confirmed by Brad.
 
-07-May-2018
+##07-May-2018
 - databse draft decided ( in /frame)
 - front-end updated
 - calculation formulation decided
 
-08-May-2018
+##08-May-2018
 - seed file done and fk link-up
 - passport local login and bcrypt working okay, only those users with has can login
 - Brad shifted to front-end
 - Parker set up router and link up server and db
 - Shawn is on back-end
 
-09-May-2018
+##09-May-2018
 - wireframe and database structure redesigned, muscles_gp removed, whole thing simplified
 - product MVP direction is changed, this website only consider calories , no other function until primary one has been finished
 - MVP (minimum viable product) 
 - => display users' calories consumed and burnt in a chart
-- => users can input exeercise and food in text-area, through server to call api to get calories, then save to db
+- => users can input exercise and food in text-area, through server to call api to get calories, then save to db
 
-10-May-2018
-- cal api okay
+##10-May-2018
+- client side call nutritionix api okay
+- public folder added
+
+##11-May-2018
+- index page updated with sucessful log-in and sign-up
+- now nutritionix api only can be called through server => client post request -> server received and post request api -> back to client
+- passport-session fixed
+- dashboard page(after logged in page) is missing
+- chart is okay, need backend's knex to select number input to chart

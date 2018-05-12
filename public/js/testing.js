@@ -1,6 +1,3 @@
-const apikey = './../../config/key'.nutritionix;
-
-
 
 $(document).ready(function () {
 
@@ -8,23 +5,65 @@ $(document).ready(function () {
         e.preventDefault();
 
         let val = $('textarea.checkup').val();
+        $('textarea').val(''); //('') <-- clear value in DOM
+        $.ajax({
+            url: '/api/xxx',
+            method: 'post',
+            data: {
+                "query": val
+            }
+        }).done((data) => {
+            $('#cal').html(`Calories: <span id='calories'>${data}</span>`);
 
-        $('textarea').val('');
-        axios({
-                url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
-                method: 'post',
-                headers: apikey,
-                data: {
-                    "query": val
-                },
-                responseType: 'json'
-            }).then(body => {
-                console.log(body.data)
-                let b = JSON.stringify(body.data.foods[0].nf_calories);
-                $('#cal').html(`Calories: ${b}`);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        }).fail((err) => {
+            console.log(err);
+        })    
     });
+
+    $('#save-calories').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/api/save-result',
+            method: 'post',
+            data: {
+                "calories": $('#calories').text()
+            }
+        }).done((data) => {
+            $('#cal').html(`Calories: ${data}`);
+
+        }).fail((err) => {
+            console.log(err);
+        })
+    });
+
+    $('#logout').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/logout',
+            method: 'get',
+
+        }).done().fail((err) => {
+            console.log(err);
+        })
+    });
+
+    // call get exercise list
+        $.ajax({
+            url: '/getExe',
+            method: 'get',
+
+        }).done((data) => {
+            console.log(data[0].name);
+            $('select#check_exe').children().remove();
+            $( 'select#check_exe').append(`
+            <option></option>
+            
+            `);
+            
+        })
+        .fail((err) => {
+            console.log(err);
+        })
 });

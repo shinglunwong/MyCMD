@@ -12,27 +12,34 @@ module.exports = (express, knex) => {
         res.redirect('/');
     }
 
-    router.get('/signup', (req, res) => {
-        res.sendFile(__dirname + '/signup.html');
+    router.get('/signed', (req, res) => {
+        res.send('signed in !');
     });
     
     router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
+        successRedirect: '/signed',
         failureRedirect: '/error'
     }));
 
-    router.get('/login', (req, res) => {
-        res.sendFile(__dirname + '/login.html');
+    router.get('/', (req, res) => {
+        res.sendFile(__dirname + '/index.html');
     });
-    router.get('/testing',(req, res) => {
+    router.get('/testing',isLoggedIn,(req, res) => {
         res.sendFile(__dirname + '/testing.html');
     });
 
     router.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/testing',
-        failureRedirect: '/error'
+        successRedirect: '/dashboard',
+        failureRedirect: '/error',
+        successFlash: 'Welcome!' 
     }));
+    //log out
+    router.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
 
+    //check food  VVV
     router.post('/api/xxx', (req, res) => {
 
         console.log(req.user); //testing
@@ -56,6 +63,7 @@ module.exports = (express, knex) => {
             console.log(err)
         })
     });
+    //save food VVV
     router.post('/api/save-result', (req, res) => {
         console.log(req.user);
         console.log(req.body.calories); //testing
@@ -64,12 +72,25 @@ module.exports = (express, knex) => {
     });
 
     router.get('/error', (req, res) => {
-        res.send('You are not logged in!');
+        res.send('failed');
     });
 
+    router.get('/dashboard', isLoggedIn,(req,res) =>{
+        res.sendFile(__dirname + '/dashboard.html');
+    })
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
 
+    router.get('/getExe',(req,res) => {
+        knex.select('id','name').from('activity')
+            .then((data) => {
+                res.json(data);
+    
+            }).catch((err) => {
+                console.log(err)
+            })
+        })
+    
     return router;
 };

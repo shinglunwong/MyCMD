@@ -25,9 +25,10 @@ module.exports = (app, knex) => {
                     gender: req.body.gender,
                     age: req.body.age
                 };
+                console.log(newUser);
                 await knex('user_profile').insert(newUser);
                 let keepuser = [email,req.body.weight,req.body.gender,req.body.height,req.body.age];
-                done(null, keepuser);
+                done(null, keepuser);console.log(keepuser);
             }catch(err){
                 done(err);
             }
