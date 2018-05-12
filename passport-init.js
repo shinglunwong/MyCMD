@@ -26,8 +26,8 @@ module.exports = (app, knex) => {
                     age: req.body.age
                 };
                 console.log(newUser);
-                await knex('user_profile').insert(newUser);
-                let keepuser = [email,req.body.weight,req.body.gender,req.body.height,req.body.age];
+                await knex('user_profile').insert(newUser).returning('id');
+                let keepuser = [email,id,req.body.weight,req.body.gender,req.body.height,req.body.age];
                 done(null, keepuser);console.log(keepuser);
             }catch(err){
                 done(err);
@@ -63,7 +63,7 @@ passport.serializeUser((keepuser, done) => {
 passport.deserializeUser(async (user, done) => {
     let users = await knex('user_profile').where({id:user.id});
     if (users.length == 0) {
-        return done(new Error(`Wrong user id ${id}`));
+        return done(new Error(`Wrong user id `));
     }
     let selectedUser = users[0];
     return done(null, selectedUser);
