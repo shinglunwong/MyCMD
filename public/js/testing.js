@@ -36,4 +36,30 @@ $(document).ready(function () {
             console.log(err);
         })
     });
+
+    $('#logout').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/logout',
+            method: 'get',
+
+        }).done().fail((err) => {
+            console.log(err);
+        })
+    });
+
+    // call get exercise list
+        $.ajax({
+            url: '/getExe',
+            method: 'get',
+
+        }).done((data) => {
+            console.log(data);
+            $('#getExe').children().remove();
+            
+        })
+        .fail((err) => {
+            console.log(err);
+        })
 });
