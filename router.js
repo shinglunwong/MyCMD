@@ -23,6 +23,7 @@ module.exports = (express, knex) => {
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
+    
     router.get('/testing',isLoggedIn,(req, res) => {
         res.sendFile(__dirname + '/testing.html');
     });
@@ -34,6 +35,7 @@ module.exports = (express, knex) => {
     }));
     //log out
     router.get('/logout', function(req, res){
+        console.log('HI');
         req.logout();
         res.redirect('/');
       });
@@ -77,10 +79,6 @@ module.exports = (express, knex) => {
     router.get('/dashboard', isLoggedIn,(req,res) =>{
         res.sendFile(__dirname + '/dashboard.html');
     })
-    router.get('/', (req, res) => {
-        res.sendFile(__dirname + '/index.html');
-    });
-
     router.get('/getExe',(req,res) => {
         knex.select('id','name').from('activity')
             .then((data) => {
