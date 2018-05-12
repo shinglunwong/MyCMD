@@ -59,3 +59,5 @@ setup user table containing
 - index page updated with sucessful log-in and sign-up
 - now nutritionix api only can be called through server => client post request -> server received and post request api -> back to client
 - passport-session fixed
+- dashboard page(after logged in page) is missing
+- chart is okay, need backend's knex to select number input to chart

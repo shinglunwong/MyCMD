@@ -24,15 +24,22 @@ module.exports = (express, knex) => {
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
-    router.get('/testing',(req, res) => {
+    router.get('/testing',isLoggedIn,(req, res) => {
         res.sendFile(__dirname + '/testing.html');
     });
 
     router.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/logged',
-        failureRedirect: '/error'
+        successRedirect: '/dashboard',
+        failureRedirect: '/error',
+        successFlash: 'Welcome!' 
     }));
+    //log out
+    router.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
 
+    //check food  VVV
     router.post('/api/xxx', (req, res) => {
 
         console.log(req.user); //testing
@@ -56,6 +63,7 @@ module.exports = (express, knex) => {
             console.log(err)
         })
     });
+    //save food VVV
     router.post('/api/save-result', (req, res) => {
         console.log(req.user);
         console.log(req.body.calories); //testing
@@ -67,12 +75,22 @@ module.exports = (express, knex) => {
         res.send('failed');
     });
 
-    router.get('/logged', (req,res) =>{
-        res.send('youre logged in !')
+    router.get('/dashboard', isLoggedIn,(req,res) =>{
+        res.sendFile(__dirname + '/dashboard.html');
     })
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
 
+    router.get('/getExe',(req,res) => {
+        knex.select('id','name').from('activity')
+            .then((body) => {
+                res.json(body);
+    
+            }).catch((err) => {
+                console.log(err)
+            })
+        })
+    
     return router;
 };
