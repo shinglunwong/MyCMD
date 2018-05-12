@@ -15,6 +15,9 @@ exports.seed = function(knex, Promise) {
         {id: 8, name: 'volleyball',MET:'4.5'},
         {id: 9, name: 'squash',MET:'12'},
         {id: 10, name: 'boxing',MET:'7.8'},
+        {id: 11, name: 'cycling',MET:'7'},
+        {id: 12, name: 'running',MET:'9'},
+
 
 
       ]);

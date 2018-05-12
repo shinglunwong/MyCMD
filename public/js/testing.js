@@ -57,10 +57,10 @@ $(document).ready(function () {
         }).done((data) => {
             console.log(data[0].name);
             $('select#check_exe').children().remove();
-            $( 'select#check_exe').append(`
-            <option></option>
-            
-            `);
+            for(let i = 0; i < data.length; i++){
+                $( 'select#check_exe').append(`
+                <option value='${data[i].id}'>${data[i].name}</option> `);
+            }
             
         })
         .fail((err) => {
