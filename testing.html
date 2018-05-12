@@ -55,15 +55,25 @@
             <form action="/getExe">
                 <select name="exercise" id="check_exe">
                     <!-- option -->
-                    <option>1</option>
+                    <option value="null">-</option>
                 </select>
             </form>
         </div> <!-- end of check exercise-->
         <div> 
-            <form action="">
+            <select name="exercise" id="dur">
+                <!-- option -->
+                <option value="null">-</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="60">60</option>
 
-            </form>
+            </select>
+            
         </div>
+        <button type='button'id="calculate">calculate</button>
+        <span id='showCal'></span>
+        <button type='button'id="save-exe">save exe</button>
     </div>
 </section> <!-- end of check exercise-->
 </body>

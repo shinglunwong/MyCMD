@@ -70,15 +70,15 @@
       scaleX: {
         lineColor: '#E3E3E5',
         zooming: true,
-        zoomTo: [0, 15],
-        minValue: 1459468800000,
-        step: 'day',
+        zoomTo: [0, 7],
+        minValue: 85500000,
+        step: 'day', //week
         item: {
           fontColor: '#E3E3E5'
         },
         transform: {
           type: 'date',
-          all: '%D %M %d<br>%h:%i:%s'
+          all: '%M' + '%d'+'%h:%i:%s' //month and day
         }
       },
       scaleY: {

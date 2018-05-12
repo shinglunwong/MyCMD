@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('.addresult').click(function (e) {
@@ -17,7 +16,7 @@ $(document).ready(function () {
 
         }).fail((err) => {
             console.log(err);
-        })    
+        })
     });
 
     $('#save-calories').click(function (e) {
@@ -50,20 +49,39 @@ $(document).ready(function () {
     });
 
     // call get exercise list
-        $.ajax({
+    $.ajax({
             url: '/getExe',
             method: 'get',
 
         }).done((data) => {
             console.log(data[0].name);
-            $('select#check_exe').children().remove();
-            for(let i = 0; i < data.length; i++){
-                $( 'select#check_exe').append(`
-                <option value='${data[i].id}'>${data[i].name}</option> `);
+            for (let i = 0; i < data.length; i++) {
+                $('select#check_exe').append(`
+                <option value='${data[i].MET}'>${data[i].name}</option> `);
             }
-            
+
         })
         .fail((err) => {
             console.log(err);
         })
+
+    $('#calculate').click(function (e) {
+        e.preventDefault();
+        let met = $('#check_exe').val();
+        var duration = $('#dur').val();
+        $.ajax({
+            url: '/cal',
+            method: 'get',
+
+        }).done((data)=>{
+            //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
+            let sum = duration*(data[0].weight*met*3.5)/200
+            console.log(duration*(data[0].weight*met*3.5)/200);
+            $('#showCal').html(`total calories you burnt : ${sum}`);
+        })
+        .fail((err) => {
+            console.log(err);
+        });
+    });
+
 });

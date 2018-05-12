@@ -80,7 +80,7 @@ module.exports = (express, knex) => {
         res.sendFile(__dirname + '/dashboard.html');
     })
     router.get('/getExe',(req,res) => {
-        knex.select('id','name').from('activity')
+        knex.select('id','name','MET').from('activity')
             .then((data) => {
                 res.json(data);
     
@@ -89,5 +89,17 @@ module.exports = (express, knex) => {
             })
         })
     
+        router.get('/cal',(req,res) => {
+            knex.select('weight').from('user_profile').where(req.user.id=id)
+                .then((data) => {
+                    console.log(req.user.id);
+                    console.log(data);
+                    res.json(data);
+                    
+        
+                }).catch((err) => {
+                    console.log(err)
+                })
+            })
     return router;
 };
