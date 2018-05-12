@@ -70,34 +70,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="js/testing.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#logout').click(function (e) {
-            e.preventDefault();
-
-            $.ajax({
-                url: '/logout',
-                method: 'get',
-
-            }).done().fail((err) => {
-                console.log(err);
-            })
-        });
-
-        // call get exercise list
-            $.ajax({
-                url: '/getExe',
-                method: 'get',
-
-            }).done((data) => {
-                console.log(data);
-                $('#getExe').html(`<option>${data}</option>`);
-            })
-            .fail((err) => {
-                console.log(err);
-            })
-        });
-            
-
+ 
 </script>
 
 </html>
