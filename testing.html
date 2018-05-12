@@ -24,61 +24,53 @@
 </style>
 
 <body>
-    <!-- <form action="/check"> -->
-    <section>
-        <div>
-            <label>Check</label>
-            <textarea name="check" placeholder="food" class="checkup"></textarea>
+    <section> <!-- check food api-->
+    <div>
+        <label>Check food</label>
+        <textarea name="check" placeholder="E.G. 3 apples" class="checkup"></textarea>
 
+    </div>
+    <div>
+        <label for="">
+            <button type="submit" name="checkup" class="addresult">click</button>
+        </label>
+    </div>
+    <div>
+        <h2>total calories</h2>
+        <div id="addresult">
+            <strong>
+                <span id="cal"></span>
+            </strong>
         </div>
         <div>
-            <label for="">
-                <button type="submit" name="checkup" class="addresult">click</button>
-            </label>
+            <button id="logout">log out</button>
         </div>
-        <!-- </form> -->
-        <div>
-            <h2>total calories</h2>
-            <div id="addresult">
-                <strong>
-                    <span id="cal"></span>
-                </strong>
-            </div>
-        </div>
-        <button id="save-calories">Save Calories Result</button>
-    </section>
-    <br>
-    <br>        
-    <br>
-    <br>
-    <section>
-        <form action="">
-        <div>
-            <label>Check</label>
-            <textarea name="check" placeholder="exercises" class="checkup"></textarea>
+    </div>
+    <button id="save-calories">Save Calories Result</button>
+</section> <!-- end of check food-->
 
-        </div>
+<section> 
+    <div> <!-- check exercise-->
+        <div>
+            <form action="/getExe">
+                <select name="exercise" id="check_exe">
+                    <!-- .innerHTML('') -->
+                </select>
+            </form>
+        </div> <!-- end of check exercise-->
+        <div> 
+            <form action="">
 
-        <div>
-            <label for="">
-                <button type="submit" name="checkup" class="addresult">click</button>
-            </label>
+            </form>
         </div>
-        <!-- </form> -->
-        <div>
-            <h2>total calories</h2>
-            <div id="addresult">
-                <strong>
-                    <span id="cal"></span>
-                </strong>
-            </div>
-        </div>
-        <button id="save-calories">Save Execrises Result</button>
-    </form>
-    </section>
+    </div>
+</section> <!-- end of check exercise-->
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./testing.js"></script>
+<script src="js/testing.js"></script>
+<script>
+ 
+</script>
 
 </html>
