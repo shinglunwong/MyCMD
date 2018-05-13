@@ -4,38 +4,27 @@ var cookieSession = require('cookie-session')
 var passport = require('./passport-init');
 var app = express();
 const bodyPaser = require('body-parser');
-const router = require('./router')(express);
+var flash = require('connect-flash');
 require('dotenv').config();
+const knexConfig = require('./knexfile').development;
+const knex = require('knex')(knexConfig);
 
-const knex = require('knex')({
-    // Config containing the information of the database connection.
-    client: 'postgresql',
-    connection: {
-        database: process.env.DB_NAME,
-        user: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD
-    }
-});
 
-// app.use(cookieSession({
-//     name: 'session',
-//     secret: 'a hard to guess secret',
-//     // Cookie Options
-//     maxAge: 24 * 60 * 60 * 1000 // 24 hours
-// }))
+const router = require('./router')(express, knex);
 
-// app.get('/', (req, res) => {
-//     console.log(req.session);
 
-//     if (!req.session.id) {
-//         req.session.id = 'unique identifier'
-//     }
+app.use(cookieSession({
+    name: 'session',
+    secret: 'a hard to guess secret',
+    // Cookie Options
+    //maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
-//     findUser(req.session) // return information about the user
-// })
+app.use(bodyPaser.urlencoded({ extended: false }));//必要
+app.use(express.static(path.join(__dirname, 'public')));//必要：a website with many static files that you want to serve, like CSS files, HTML files or image files******開一個folder裝起先js ＆ css
+app.use(flash());
 
-app.use(bodyPaser.urlencoded({ extended: false }))//必要
-app.use(express.static('public'));//必要：a website with many static files that you want to serve, like CSS files, HTML files or image files******開一個folder裝起先js ＆ css
+
 
 passport(app, knex);
 app.use('/', router);

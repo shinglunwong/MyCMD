@@ -30,7 +30,7 @@
 <body>
   <div id="myChart"></div>
   <script>
-    var test = []; //get calorie record from SQL
+    var calories = []; //get calorie record from SQL
 
     var myConfig = {
       type: 'line',
@@ -161,7 +161,7 @@
       }],
 
       series: [{
-        values: test,  //get calorie record from SQL
+        values: calories,  //get calories record from SQL
         lineColor: '#E34247',
         marker: {
           backgroundColor: '#E34247'
@@ -175,7 +175,7 @@
       }]
     };
     
-    test.push(63.8, 44.33, 77.56, 95.28, 60.93) //get calorie record from SQL
+    calories.push(63.8, 44.33, 77.56, 95.28, 60.93) //get calories record from SQL
 
     zingchart.render({
       id: 'myChart',

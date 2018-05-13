@@ -26,9 +26,10 @@ module.exports = (app, knex) => {
                     age: req.body.age
                 };
                 console.log(newUser);
-                await knex('user_profile').insert(newUser);
-                let keepuser = [email,req.body.weight,req.body.gender,req.body.height,req.body.age];
-                done(null, keepuser);console.log(keepuser);
+                let abc = await knex('user_profile').insert(newUser).returning('id');
+
+                done(null, abc[0]);
+                console.log(abc[0]);
             }catch(err){
                 done(err);
             }
@@ -46,7 +47,7 @@ module.exports = (app, knex) => {
                 let user = users[0];
                 let result = await bcrypt.checkPassword(password, user.password);    
                 if(result) {
-                    return done(null, user);
+                    return done(null, user.id);
                 } else {
                     return done(null, false, { message: 'Incorrect credentials'});
                 }
@@ -56,17 +57,17 @@ module.exports = (app, knex) => {
         }
     ));
 
-passport.serializeUser((keepuser, done) => {
-    done(null, keepuser);
+passport.serializeUser((abc, done) => {
+    done(null, abc);
 });
 
-passport.deserializeUser(async (id, done) => {
-    let users = await knex('user_profile').where({id:id});
+passport.deserializeUser(async (user, done) => {
+    let users = await knex('user_profile').where({id:user});
     if (users.length == 0) {
-        return done(new Error(`Wrong user id ${id}`));
+        return done(new Error('Wrong user id'));
     }
-    let user = users[0];
-    return done(null, user);
+    let selectedUser = users[0];
+    return done(null, selectedUser);
 });
 };
 

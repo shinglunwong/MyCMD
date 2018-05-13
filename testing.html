@@ -24,10 +24,10 @@
 </style>
 
 <body>
-    <!-- <form action="/check"> -->
+    <section> <!-- check food api-->
     <div>
-        <label>Check</label>
-        <textarea name="check" placeholder="input something here.." class="checkup"></textarea>
+        <label>Check food</label>
+        <textarea name="check" placeholder="E.G. 3 apples" class="checkup"></textarea>
 
     </div>
     <div>
@@ -35,7 +35,6 @@
             <button type="submit" name="checkup" class="addresult">click</button>
         </label>
     </div>
-    <!-- </form> -->
     <div>
         <h2>total calories</h2>
         <div id="addresult">
@@ -43,11 +42,46 @@
                 <span id="cal"></span>
             </strong>
         </div>
+        <div>
+            <button id="logout">log out</button>
+        </div>
     </div>
     <button id="save-calories">Save Calories Result</button>
+</section> <!-- end of check food-->
+
+<section> 
+    <div> <!-- check exercise-->
+        <div>
+            <form action="/getExe">
+                <select name="exercise" id="check_exe">
+                    <!-- option -->
+                    <option value="null">-</option>
+                </select>
+            </form>
+        </div> <!-- end of check exercise-->
+        <div> 
+            <select name="exercise" id="dur">
+                <!-- option -->
+                <option value="null">-</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="60">60</option>
+
+            </select>
+            
+        </div>
+        <button type='button'id="calculate">calculate</button>
+        <span id='showCal'></span>
+        <button type='button'id="save-exe">save exe</button>
+    </div>
+</section> <!-- end of check exercise-->
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./testing.js"></script>
+<script src="js/testing.js"></script>
+<script>
+ 
+</script>
 
 </html>
