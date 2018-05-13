@@ -100,4 +100,6 @@ $(document).ready(function () {
         })
     });
 
+        // for chart.html
+        
 });

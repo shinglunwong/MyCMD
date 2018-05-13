@@ -1,3 +1,5 @@
+import { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } from "constants";
+
 $(function() {
     $("input[name='password2']").keyup(function() {
         if ($("input[name='password']").val() == $("input[name='password2']").val()) {
@@ -24,3 +26,5 @@ $(function() {
         }
     })
 })
+
+

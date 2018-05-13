@@ -111,9 +111,23 @@ module.exports = (express, knex) => {
         })
     });
 
+    router.get('/show', (req, res) => {
+        res.sendFile(__dirname + '/chart.html');
+    });
 
-    router.get('/api/input-data-chart', (req, res) => {
-        
-    })
+
+
+    router.get('/chart', (req, res) => {
+        // res.sendFile(__dirname + '/chart.html');
+            let user = req.user;
+            knex.from('burn').sum('record').innerJoin('user_profile', 'burn.user_idkey', 'user_profile.id').groupBy('date').orderBy('date', 'aesc')
+                .then((data) => {
+                    console.log(data);
+                    res.json(data)
+                }).catch((err) => {
+                    console.log(err)
+                })
+        })
+    
     return router;
 };
