@@ -54,7 +54,6 @@ $(document).ready(function () {
             method: 'get',
 
         }).done((data) => {
-            console.log(data[0].name);
             for (let i = 0; i < data.length; i++) {
                 $('select#check_exe').append(`
                 <option value='${data[i].MET}'>${data[i].name}</option> `);
@@ -77,11 +76,28 @@ $(document).ready(function () {
             //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
             let sum = duration*(data*met*3.5)/200
             console.log(duration*(data*met*3.5)/200);
-            $('#showCal').html(`total calories you burnt : ${sum}`);
+            $('#showCal').html(`total calories you burnt : <span id='burn-calories'>${sum}</span>`);
         })
         .fail((err) => {
             console.log(err);
         });
+    });
+
+    $('#save-exe').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/api/save-burnresult',
+            method: 'post',
+            data: {
+                "burncCalories": $('#burn-calories').text()
+            }
+        }).done((data) => {
+            console.log('saved burn calories');
+            alert(data.msg);
+        }).fail((err) => {
+            console.log(err);
+        })
     });
 
 });
