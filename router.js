@@ -92,6 +92,7 @@ module.exports = (express, knex) => {
 
     router.get('/cal', (req, res) => {
         let user = req.user
+        console.log('HI')
         console.log(user)
         knex.select('weight').from('user_profile').where({ 'id': user.id })
             .then((data) => {
