@@ -12,8 +12,9 @@ $(document).ready(function () {
                 "query": val
             }
         }).done((data) => {
-            $('#cal').html(`Calories: <span id='calories'>${data}</span>`);
-
+            console.log(data)
+            $('#cal').html(`Calories: ${data}`);
+            $('#cal').val(data);
         }).fail((err) => {
             console.log(err);
         })
@@ -26,11 +27,10 @@ $(document).ready(function () {
             url: '/api/save-result',
             method: 'post',
             data: {
-                "calories": $('#calories').text()
+                "calories": $('#cal').val()
             }
         }).done((data) => {
-            $('#cal').html(`Calories: ${data}`);
-
+            $('#cake').html(`new record saved!`)
         }).fail((err) => {
             console.log(err);
         })
@@ -64,7 +64,7 @@ $(document).ready(function () {
             console.log(err);
         })
 
-    $('#calculate').click(function (e) {
+        $('#calculate').click(function (e) {
         e.preventDefault();
         let met = $('#check_exe').val();
         let duration = $('#dur').val();
@@ -78,9 +78,9 @@ $(document).ready(function () {
             }).done((data)=>{
                 //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
                 $('#pop').remove();
-                console.log(data);
+                // console.log(data);
                 let sum = duration*(data*met*3.5)/200
-                console.log(duration*(data*met*3.5)/200);
+                // console.log(duration*(data*met*3.5)/200);
                 $('#showCal').html(`total calories you burnt : <span id='burn-calories'>${sum}</span>`);
             })
             .fail((err) => {
@@ -97,7 +97,7 @@ $(document).ready(function () {
             url: '/api/save-burnresult',
             method: 'post',
             data: {
-                "burncCalories": $('#burn-calories').text()
+                "calories": $('#burn-calories').text()
             }
         }).done((data) => {
             console.log('saved burn calories');
