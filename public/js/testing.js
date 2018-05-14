@@ -67,22 +67,28 @@ $(document).ready(function () {
     $('#calculate').click(function (e) {
         e.preventDefault();
         let met = $('#check_exe').val();
-        var duration = $('#dur').val();
-        $.ajax({
-            url: '/cal',
-            method: 'get',
-
-        }).done((data)=>{
-            //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
-            console.log(data);
-            let sum = duration*(data*met*3.5)/200
-            console.log(duration*(data*met*3.5)/200);
-            $('#showCal').html(`total calories you burnt : <span id='burn-calories'>${sum}</span>`);
-        })
-        .fail((err) => {
-            console.log(err);
-        });
+        let duration = $('#dur').val();
+        if (met == 'null' || duration == 'null'){
+            $('#tear').append('<strong style="color:red" id="pop">Please input activity and duration first !</strong>');
+        }else{
+            $.ajax({
+                url: '/cal',
+                method: 'get',
+    
+            }).done((data)=>{
+                //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
+                $('#pop').remove();
+                console.log(data);
+                let sum = duration*(data*met*3.5)/200
+                console.log(duration*(data*met*3.5)/200);
+                $('#showCal').html(`total calories you burnt : <span id='burn-calories'>${sum}</span>`);
+            })
+            .fail((err) => {
+                console.log(err);
+            });
+        }
     });
+        
 
     $('#save-exe').click(function (e) {
         e.preventDefault();
