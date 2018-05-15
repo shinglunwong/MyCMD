@@ -20,8 +20,8 @@ app.use(cookieSession({
     //maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
-app.use(bodyPaser.urlencoded({ extended: false }));//必要
-app.use(express.static(path.join(__dirname, 'public')));//必要：a website with many static files that you want to serve, like CSS files, HTML files or image files******開一個folder裝起先js ＆ css
+app.use(bodyPaser.urlencoded({ extended: false }));//need
+app.use(express.static(path.join(__dirname, 'public')));//need：a website with many static files that you want to serve, like CSS files, HTML files or image files******開一個folder裝起先js ＆ css
 app.use(flash());
 
 

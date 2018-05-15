@@ -207,12 +207,11 @@
         method: 'get',
 
       }).done(((data) => {
-        console.log(data)
-        // console.log(data[0].record);
         for (let i = 0; i < data.length; i++) {
-          calories.push(Number(data[i].sum));
-          console.log(data[i].sum);
-          console.log(calories)
+          if(!isNaN(data[i].sum)){
+            calories.push(Number(data[i].sum));
+            console.log(data[i].sum);
+          }
         }
         zingchart.render({
           id: 'myChart',
