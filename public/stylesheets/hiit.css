@@ -50,15 +50,16 @@ body {
     padding: 0;
 }
 
-.timer button {
+.timer button.play, .timer button.pause {
     width: 100%;
-    height: 30%;
-    padding: 0;
+    height: 100%;
+    padding: 15px;
+    font-size: 3vw;
 }
 
 .mstime { 
     height: 70%;
-    font-size: 80px;
+    font-size: 9vw;
     justify-content: center;
     padding-top: 15px;
 }
@@ -107,4 +108,8 @@ input[type=number]{
 }
 .timer p {
     margin: 0;
+}
+.close-btn {
+    text-align: center;
+    margin-top: 50px;
 }

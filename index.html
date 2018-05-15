@@ -53,7 +53,7 @@
         <br>
         <p class="head-content">healthy lifestyle assistant</p>
         <div class="login-btn">
-          <img src="images/4.png">
+          <img src="https://png.icons8.com/ios/100/000000/dumbbell-filled.png">
         </div>
         <div class="login-form hide">
           <nav>
@@ -80,19 +80,12 @@
                 </div>
                 </br>
                 <button type="submit" class="btn" value="login">Login</button>
-                <a href="haha">forget password?</a>
                 <!-- a link -->
               </form>
             </div>
             <!-- sign up -->
             <div class="tab-pane fade" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab">
               <form action="/signup" method="post">
-                <!-- <div class="form-row">
-                        <div class="col-xs-4">
-                          <label for="username">Username: </label>
-                          <input type="text" class="form-control form-control-sm" id="username" name="username">
-                        </div>
-                      </div> -->
                 <div class="form-row">
                   <div class="col-xs-4">
                     <label for="username">Email:</label>
@@ -149,98 +142,89 @@
 
 
     <!-- Tools -->
-    <div class="container">
+    <div class="container" id="tools">
       <div class="center-text margin">
-        <h2>Tools for health</h2>
+        <h2>Tools</h2>
         <br>
         <br>
         <div class="row">
           <div class="col-lg-6 col-12">
-            <p>Calories Converter</p>
+            <p>
+              In order to stay fit, you need to burn same amount of calories than you consume. Our website can record all of your calorie
+              entries.
+            </p>
             <div class="tool">
               <img src="https://png.icons8.com/metro/200/FFFFFF/french-fries.png">
             </div>
+            <p class="tool-name">Calories Converter</p>
           </div>
 
           <div class="col-lg-6 col-12">
-            <p>HIIT Timer</p>
+            <p>
+              HIIT workouts get your heart rate up and improve your cardiovascular fitness level while burning more fat and calories in
+              less time.
+            </p>
             <div class="tool">
               <img src="https://png.icons8.com/metro/200/FFFFFF/time.png">
             </div>
+            <p class="tool-name">HIIT Timer</p>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- Intro -->
-    <!-- what is calories > how to remain fit (explain exercise) > HIIT for max effect -->
-    <div class="container">
-      <div class="row margin">
-        <div class="col-sm-6">
-          <p>
-            In order to stay fit, you need to burn same amount of calories than you consume. Our website can record all of your calorie
-            entries.
-          </p>
-        </div>
-        <div class="col-sm-6">
-          <p>
-            HIIT workouts get your heart rate up and improve your cardiovascular fitness level while burning more fat and calories in
-            less time.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- Contact Us -->
-    <div class="container">
-      <div class="center-text margin">
-        <h2>Contact us</h2>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-12">
-          <div class="namecard">
-            <img src="images/jumbo.jpg" class="profile-icon">
-            <div>
-              <p class="name">Shawn</p>
-              <p class="title">Database Engineer</p>
-            </div>
-          </div>
-          <div class="namecard">
-            <img src="images/jumbo.jpg" class="profile-icon">
-            <div>
-              <p class="name">Parker</p>
-              <p class="title">System Administrator</p>
-            </div>
-          </div>
-          <div class="namecard">
-            <img src="images/jumbo.jpg" class="profile-icon">
-            <div>
-              <p class="name">Brad</p>
-              <p class="title">Platform Manager</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <form id="email">
-            <div class="form-group">
-              <label for="target-input">To:</label>
-              <input type="email" class="form-control" id="target-input" placeholder="Click the namecard to select" readonly>
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="text" placeholder="subject" id='subject'>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" placeholder="Please enter your queries" id='body'></textarea>
-            </div>
-            <a id="send" href="mailto:someone@example.com?subject=test&body=123">Send</a>
-          </form>
-
         </div>
       </div>
     </div>
   </div>
+  <!-- Contact Us -->
+  <div class="container" id="contact-us">
+    <div class="center-text margin">
+      <h2>Contact us</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <div class="namecard">
+          <img src="images/Shawn.png" class="profile-icon">
+          <div>
+            <p class="name">Shawn</p>
+            <p class="title">Database Engineer</p>
+          </div>
+        </div>
+        <div class="namecard">
+          <img src="images/jumbo.jpg" class="profile-icon">
+          <div>
+            <p class="name">Parker</p>
+            <p class="title">System Administrator</p>
+          </div>
+        </div>
+        <div class="namecard">
+          <img src="images/Brad.jpg" class="profile-icon">
+          <div>
+            <p class="name">Brad</p>
+            <p class="title">Platform Manager</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12">
+        <form id="email">
+          <div class="form-group">
+            <label for="target-input">To:</label>
+            <input type="email" class="form-control" id="target-input" placeholder="Click the namecard to select" readonly>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Subject" id='subject'>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Please enter your queries" id='body'></textarea>
+          </div>
+          <a id="send" href="mailto:someone@example.com?subject=test&body=123">Send</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
 
   <!-- Footer -->
-  <div class="footer center-text margin">
+  <div class="footer center-text">
     <p class="disclaimer">Disclaimer: All information is for use in adults defined as individuals 18 years of age or older and not by younger people,
       or pregnant or breastfeeding women. A health care provider who has examined you and knows your medical history is the
       best person to diagnose and treat your health problem. If you have specific health questions, please consult your health

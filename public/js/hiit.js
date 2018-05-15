@@ -61,7 +61,7 @@ $(function () {
         for (let element of timerList) {
             timerSecondList.push(pair[element]);
         }
-        let t = setInterval(reduce, 10);
+        let t = setInterval(reduce, 1000);
         function reduce() {
             if (!isPaused) {
                 timerSecondList[index]--;

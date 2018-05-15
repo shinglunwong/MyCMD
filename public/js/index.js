@@ -16,7 +16,6 @@ $(function () {
     $("div.namecard").click(function () {
         target = $('div.namecard').index(this);
         $('#target-input').val(email[target]);
-
     })
 
     $('#body, #subject').keyup(function () {
@@ -38,13 +37,9 @@ $(function () {
         $('.login-form').prepend('<hr>')
         $('.login-btn img').hide();
         $('.head-content').hide();
-        $('.human-1').delay(500).animate({ color: "#000000" }, 'slow');
-        $('.human-2').delay(500).animate({ color: "fff" }, 'slow');
+        $('.human-1').delay(500).animate({ color: "#8b0000" }, 'slow');
         $('.login-form hr').delay(350).animate({width: "15vw"},'slow');
     })
-
-
-
 
 
 
