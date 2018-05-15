@@ -23,6 +23,9 @@ module.exports = (express, knex) => {
     router.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     });
+    router.get('/hiit', (req, res) => {
+        res.sendFile(__dirname + '/hiit.html');
+    });
 
     router.get('/testing', isLoggedIn, (req, res) => {
         res.sendFile(__dirname + '/testing.html');
