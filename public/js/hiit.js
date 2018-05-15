@@ -43,6 +43,7 @@ $(function () {
 
     let isPaused = true;
     $('.create').on('click', function (e) {
+        e.preventDefault();
         let pair = {
             "warmup-bg": warmup,
             "cooldown-bg": cooldown,
@@ -66,9 +67,7 @@ $(function () {
                 timerSecondList[index]--;
                 if (timeRun < total) {
                     timeRun++;
-                    console.log('running');
                 } else {
-                    console.log('clear');
                     clearInterval(t);
                 }
                 if (timerSecondList[index] == '0') {
@@ -79,17 +78,28 @@ $(function () {
                         $('.timer').removeClass(lastClass).addClass(timerList[index])
                     } else {
                         $('.timer').removeClass(lastClass).addClass('finish-bg')
-                        
+                        $('.mstime').html('<h1>Finish Workout</h1>')
                     }
                 }
                 let { min, second } = secondToMinute(timerSecondList[index])
-
-                $('.min').html(min);
-                $('.second').html(second);
+                let mTotal = secondToMinute(timeRun).min
+                let sTotal = secondToMinute(timeRun).second
+                $('.timeRun').html(`${mTotal}m${sTotal}s`);
+                $('.min').html(min+'m');
+                $('.second').html(second+'s');
                 $('.pointer').css('left', (timeRun) / total * 100 + '%')
             }
         }
+        $('.timer').show();
+        let { min, second } = secondToMinute(timerSecondList[index])
+        let mTotal = secondToMinute(timeRun).min
+        let sTotal = secondToMinute(timeRun).second
+        $('.timeRun').html(`${mTotal}m${sTotal}s`);
+        $('.min').html(min+'m');
+        $('.second').html(second+'s');
+        $('.pointer').css('left', (timeRun) / total * 100 + '%')
 
+        
     })
 
     $('.pause').on('click', function (e) {
@@ -101,4 +111,9 @@ $(function () {
         e.preventDefault();
         isPaused = false;
     });
+    $('.reset-btn').on('click', function (e) {
+        e.preventDefault();
+    });
+    
+
 })

@@ -14,16 +14,32 @@
 
 <body>
     <form class="input-form">
-        <p>set</p>
-        <input type="number" name="set" value="3">
-        <p>warmup</p>
-        <input type="number" name="warmup" value="120">
-        <p>cooldown</p>
-        <input type="number" name="cooldown" value="120">
-        <p>high</p>
-        <input type="number" name="high" value="30">
-        <p>low</p>
-        <input type="number" name="low" value="60">
+        <h2>HIIT timer</h2>
+        <div class="form-row">
+            <div class="col-sm-6 col-lg-2">
+                <p>Warm Up</p>
+                <input type="number" name="warmup" value="120">
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <p>Cooldown</p>
+                <input type="number" name="cooldown" value="120">
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <p>High Intensity</p>
+                <input type="number" name="high" value="30">
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <p>Low Intensity</p>
+                <input type="number" name="low" value="60">
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <p>Number of Set</p>
+                <input type="number" name="set" value="3">
+            </div>
+            <div class="col-sm-6 col-lg-2">
+                <button class="create btn-primary">Create Timer</button>
+            </div>
+        </div>
     </form>
 
     <div class="interval">
@@ -32,26 +48,23 @@
         <ul>
         </ul>
     </div>
-    <button class="create">Create Timer</button>
     <div class="timer warmup-bg">
         <div class="container">
             <div class="row mstime">
                 <span class="min"></span>
-                <span>m</span>
                 <span class="second"></span>
-                <span>s</span>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <button class="play">play</button>
                 </div>
                 <div class="col-sm-4">
-                    <button class="pause">pause</button>
+                    <p>Total time</p>
+                    <span class="timeRun"></span>
                 </div>
                 <div class="col-sm-4">
-                    <button class="reset">reset</button>
+                    <button class="pause">pause</button>
                 </div>
-
             </div>
         </div>
 

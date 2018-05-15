@@ -3,15 +3,14 @@ var path = require('path');
 var cookieSession = require('cookie-session')
 var passport = require('./passport-init');
 var app = express();
-const bodyPaser = require('body-parser');
 var flash = require('connect-flash');
-require('dotenv').config();
+
+const bodyPaser = require('body-parser');
 const knexConfig = require('./knexfile').development;
 const knex = require('knex')(knexConfig);
-
-
 const router = require('./router')(express, knex);
 
+require('dotenv').config();
 
 app.use(cookieSession({
     name: 'session',
@@ -23,8 +22,6 @@ app.use(cookieSession({
 app.use(bodyPaser.urlencoded({ extended: false }));//need
 app.use(express.static(path.join(__dirname, 'public')));//need：a website with many static files that you want to serve, like CSS files, HTML files or image files******開一個folder裝起先js ＆ css
 app.use(flash());
-
-
 
 passport(app, knex);
 app.use('/', router);

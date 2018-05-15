@@ -169,7 +169,7 @@ $.ajax({
   for (let i = 0; i < data.length; i++) {
     if (!isNaN(data[i].sum)) {
       burncalories.push(Number(data[i].sum));
-      console.log(data[i].sum);
+      // console.log(data[i].sum);
     }
   }
   zingchart.render({
@@ -200,7 +200,7 @@ $.ajax({
   for (let i = 0; i < data.length; i++) {
     if (!isNaN(data[i].sum)) {
       getcalories.push(Number(data[i].sum));
-      console.log(data[i].sum);
+      // console.log(data[i].sum);
     }
   }
   zingchart.render({
@@ -229,6 +229,7 @@ $(document).ready(function () {
   $('.dash-chart').get();
   $('.dash-get').hide();
   $('.dash-burn').hide();
+  $('.tool-timer').hide();
 
   $('#to-dash-chart').click(function (e) {
     e.preventDefault();
@@ -253,6 +254,19 @@ $(document).ready(function () {
     $('.dash-get').hide();
     $('.dash-burn').show();
   });
+
+  $('#to-dash-timer').click(function (e) {
+    e.preventDefault();
+    $('.tool-timer').show();
+  });
+
+  $('.close-btn').click(function (e) {
+    e.preventDefault();
+    $('.tool-timer').hide();
+  });
+
+  
+
 });
 
 window.onload = init;

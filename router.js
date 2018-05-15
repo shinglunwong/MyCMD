@@ -35,18 +35,17 @@ module.exports = (express, knex) => {
     router.post('/login', passport.authenticate('local-login', {
         successRedirect: '/dashboard',
         failureRedirect: '/error',
-        successFlash: 'Welcome!' //?????
     }));
     router.get('/error', (req, res) => {
         res.send('failed');
     });
 
     //log out
-    router.get('/logout', function (req, res) {
-        console.log('HI');
-        req.logout();
-        res.redirect('/');
-    });
+    // router.get('/logout', function (req, res) {
+    //     console.log('HI');
+    //     req.logout();
+    //     res.redirect('/');
+    // });
 
     //check food  VVV
     router.post('/api/get-calories', (req, res) => {
@@ -73,8 +72,9 @@ module.exports = (express, knex) => {
     router.post('/api/save-result', (req, res) => {
         knex('get').insert({
             record: parseFloat(req.body.calories), user_idkey: req.user.id
-        }).then((data)=>{ //.then() is for insert the result 
-            console.log("good save");
+        }).then((data)=>{
+            res.json(data) //.then() is for insert the result 
+            // console.log("good save");
         }).catch((err)=>{
             console.log(err);
         }) 
@@ -106,19 +106,16 @@ module.exports = (express, knex) => {
     })
 
     router.post('/api/save-burnresult', (req, res) => {
+        console.log(req.user.id)
         console.log(req.body)
         knex('burn').insert({
             record: parseFloat(req.body.calories),
             user_idkey: req.user.id
         }).then((data) => {
-            res.json({
-                msg: 'saved calories!'
-            });
+            res.json(data)
         }).catch((err) => {
             console.log(err);
-            res.status(409).json({
-                msg: "cannot save"
-            }) //correct syntax
+            
         })
     });
 
