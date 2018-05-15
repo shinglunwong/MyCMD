@@ -39,7 +39,7 @@ var myConfig = {
   scaleX: {
     lineColor: '#E3E3E5',
     zooming: true,
-    zoomTo: [0, 10],
+    zoomTo: [0, 7],
     // minValue: 1459468800000,
     step: 1,
     maxValue: 30, //week
@@ -227,7 +227,7 @@ $.ajax({
 //JQ for handle layout
 $(document).ready(function () {
   $('.dash-chart').get();
-  $('.dash-get').show();
+  $('.dash-get').hide();
   $('.dash-burn').hide();
 
   $('#to-dash-chart').click(function (e) {
