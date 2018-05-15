@@ -127,8 +127,16 @@ module.exports = (express, knex) => {
     });
 
     router.get('/burn-chart', (req, res) => {
-
         knex.from('burn').sum('record').innerJoin('user_profile', 'burn.user_idkey',  'user_profile.id').where('burn.user_idkey', req.user.id).whereNot({record:'NaN'}).groupBy('date').orderBy('date', 'aesc')
+            .then((data) => {
+                res.json(data)
+            }).catch((err) => {
+                console.log(err)
+            })
+    })
+
+    router.get('/get-chart', (req, res) => {
+        knex.from('get').sum('record').innerJoin('user_profile', 'get.user_idkey',  'user_profile.id').where('get.user_idkey', req.user.id).whereNot({record:'NaN'}).groupBy('date').orderBy('date', 'aesc')
             .then((data) => {
                 res.json(data)
             }).catch((err) => {

@@ -6,7 +6,6 @@ module.exports.hashPassword = (plainTextPassword) => {
             if (err) {
                 reject(err);
             }
-
             bcrypt.hash(plainTextPassword, salt, (err, hash) => {
                 if (err) {
                     reject(err);
@@ -23,7 +22,6 @@ module.exports.checkPassword = (plainTextPassword, hashedPassword) => {
             if(err) {
                 reject(err);
             }
-
             resolve(match);
         });
     });
