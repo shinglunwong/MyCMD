@@ -28,17 +28,18 @@ $(function () {
     $('.login-btn').click(function () {
         $('.login-form').show();
         $(".ghost-1").each(function (index) {
-            $(this).delay(60 * index).fadeOut(60);
+            $(this).delay(100 * index).fadeOut(360);
         });
         $(".ghost-2").each(function (index) {
-            $(this).delay(60 * (4 - index)).fadeOut(60);
+            $(this).delay(100 * (4 - index)).fadeOut(360);
         });
 
         $('.login-form').prepend('<hr>')
         $(this).hide();
         $('.head-content').hide();
-        $('.human-1').delay(500).animate({ color: "#500041" }, 'slow');
+        $('.human-1').delay(500).animate({ color: "#000000" }, 'slow');
         $('.human-2').delay(500).animate({ color: "fff" }, 'slow');
+        $('.login-form hr').delay(350).animate({width: "15vw"},'slow');
     })
 
 
