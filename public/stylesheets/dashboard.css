@@ -1,6 +1,6 @@
 body  {
   color: rgb(253, 253, 253);
-  background-color: #000000;
+  background-color: #181818 !important;
   font-family: monospace;
 }
 .tooltip-inner {
@@ -33,19 +33,21 @@ button {
   padding-left: 5%;
 }
 .dash-change{
-  padding: 3vw 0 0 3vw;
   line-height: 4vw;
+  text-align: center
 }
 .dash-change a{
   text-decoration: none;
   color: #FFF;
-  padding: 1vw;
 }
 .dash-change i{
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 .dash-change i:hover {
   font-size: 2.5vw;
+}
+.dash-change p{
+  margin-bottom: 0;
 }
 #myChart {
     max-height: 500px;

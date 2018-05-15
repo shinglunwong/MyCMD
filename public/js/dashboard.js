@@ -229,6 +229,7 @@ $(document).ready(function () {
   $('.dash-chart').show();
   $('.dash-get').hide();
   $('.dash-burn').hide();
+  $('.dash-timer').hide();
 
   $('#to-dash-chart').click(function (e) {
     e.preventDefault();
@@ -236,6 +237,7 @@ $(document).ready(function () {
     $('.dash-chart').show();
     $('.dash-get').hide();
     $('.dash-burn').hide();
+    $('.dash-timer').hide();
   });
 
   $('#to-dash-get').click(function (e) {
@@ -244,6 +246,7 @@ $(document).ready(function () {
     $('.dash-chart').hide();
     $('.dash-get').show();
     $('.dash-burn').hide();
+    $('.dash-timer').hide();
   });
 
   $('#to-dash-burn').click(function (e) {
@@ -252,6 +255,16 @@ $(document).ready(function () {
     $('.dash-chart').hide();
     $('.dash-get').hide();
     $('.dash-burn').show();
+    $('.dash-timer').hide();
+  });
+
+  $('#to-dash-timer').click(function (e) {
+    e.preventDefault();
+
+    $('.dash-chart').hide();
+    $('.dash-get').hide();
+    $('.dash-burn').hide();
+    $('.dash-timer').show();
   });
 });
 
