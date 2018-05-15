@@ -73,13 +73,12 @@ $(document).ready(function () {
 
         }).done((data) => {
             //Duration (in minutes) X (MET X 3.5 X weight in kg)/200
-            let sum = duration * (data * met * 3.5) / 200
-            console.log(duration * (data * met * 3.5) / 200);
+            let sum = parseFloat((duration * (data * met * 3.5) / 200).toFixed(2));
             $('#showCal').html(`<span id='burn-calories'>${sum}</span>`);
         })
-            .fail((err) => {
-                console.log(err);
-            });
+        .fail((err) => {
+            console.log(err);
+        });
     });
         
 
