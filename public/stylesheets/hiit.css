@@ -1,5 +1,10 @@
+body {
+    background: rgb(27, 27, 27)
+}
+
 .interval {
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .interval > ul {
@@ -9,7 +14,6 @@
     padding: 0;
     bottom: 0;
 }
-
 .interval > ul > li {
     height: 40px;
     float: left;
@@ -36,16 +40,11 @@
 
 .pointer{
     position: absolute;
-    width: 2px;
+    width: 3px;
     height: 40px;
-    background-color: black;
+    background-color: white;
 }
 
-.timer {
-    width: 60%;
-    height: 60%;
-    margin: auto;
-}
 
 .timer div.col-sm-4 {
     padding: 0;
@@ -61,6 +60,7 @@
     height: 70%;
     font-size: 80px;
     justify-content: center;
+    padding-top: 15px;
 }
 
 .hide {
@@ -69,7 +69,42 @@
 }
 
 .input-form {
-    height: 50%;
-    width: 50%;
-    background: aliceblue;
+    margin: 30px;
+    background: rgb(82, 95, 105);
+    padding: 15px 20px;
+    justify-content: center;
+}
+
+input[type=number]{
+    width: 100px;
+} 
+
+.input-form p {
+    margin-bottom: 3px;
+}
+
+.input-form .form-row {
+    margin: 5px;
+}
+
+.create {
+    margin-top: 20px;
+}
+
+.input-form {
+    text-align: center;
+}
+
+.timeRun {
+    font-size: 40px;
+}
+.timer {
+    text-align: center;
+    display: none;
+    width: 60%;
+    height: 40%;
+    margin: auto;
+}
+.timer p {
+    margin: 0;
 }
