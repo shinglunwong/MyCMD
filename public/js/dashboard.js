@@ -226,8 +226,8 @@ $.ajax({
 
 //JQ for handle layout
 $(document).ready(function () {
-  $('.dash-chart').get();
-  $('.dash-get').show();
+  $('.dash-chart').show();
+  $('.dash-get').hide();
   $('.dash-burn').hide();
 
   $('#to-dash-chart').click(function (e) {

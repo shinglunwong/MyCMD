@@ -26,6 +26,7 @@ $(function () {
     })
 
     $('.login-btn').click(function () {
+        $('.pre-loginbox').animate({ margin : "11vw 0 0 0"});
         $('.login-form').show();
         $(".ghost-1").each(function (index) {
             $(this).delay(100 * index).fadeOut(360);
@@ -35,7 +36,7 @@ $(function () {
         });
 
         $('.login-form').prepend('<hr>')
-        $(this).hide();
+        $('.login-btn img').hide();
         $('.head-content').hide();
         $('.human-1').delay(500).animate({ color: "#000000" }, 'slow');
         $('.human-2').delay(500).animate({ color: "fff" }, 'slow');
