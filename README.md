@@ -49,7 +49,7 @@ setup user table containing
 - product MVP direction is changed, this website only consider calories , no other function until primary one has been finished
 - MVP (minimum viable product) 
 - => display users' calories consumed and burnt in a chart
-- => users can input exercise and food in text-area, through server to call api to get calories, then save to db
+- => users can input ##exercise and ##food in text-area, through server to call api to get calories, then save to db
 
 ##10-May-2018
 - client side call nutritionix api okay
@@ -61,3 +61,11 @@ setup user table containing
 - passport-session fixed
 - dashboard page(after logged in page) is missing
 - chart is okay, need backend's knex to select number input to chart
+
+##12-May-2018
+- client can get food and save to db
+- client can get exe calculation done and save to db
+- dashboard page(after logged in page) is missing
+- chart is not okay as start date cannot be customised
+- ***Possibly it's better use handlebars to deal with html
+- 

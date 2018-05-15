@@ -7,6 +7,7 @@
     zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
 
   </script>
+  <script src="js/fontend-handle.js"></script>
   <style>
     html,
     body {
@@ -70,17 +71,20 @@
       scaleX: {
         lineColor: '#E3E3E5',
         zooming: true,
-        zoomTo: [0, 7],
-        minValue: 1526124137063,
-        step: 'day', //week
+        zoomTo: [0, 5],
+        minValue: 1,
+        step: 1,
+        maxValue:10, //week
         item: {
           fontColor: '#E3E3E5'
         },
-        transform: {
-          type: 'date',
-          all: '%M' + '%d'+'%h:%i:%s' //month and day
-        }
+      //month and day
+
+        labels:["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"]
+        //knex to select 
       },
+        utc: true,
+        timezone: 8,
       scaleY: {
         minorTicks: 1,
         lineColor: '#E3E3E5',

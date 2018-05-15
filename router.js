@@ -1,5 +1,6 @@
 const passport = require('passport');
 const axios = require('axios');
+const moment = require('moment');
 
 module.exports = (express, knex) => {
     const router = express.Router();
@@ -27,15 +28,19 @@ module.exports = (express, knex) => {
         res.sendFile(__dirname + '/hiit.html');
     });
 
-    router.get('/testing', isLoggedIn, (req, res) => {
+    router.get('/testing', (req, res) => {
         res.sendFile(__dirname + '/testing.html');
     });
 
     router.post('/login', passport.authenticate('local-login', {
         successRedirect: '/dashboard',
         failureRedirect: '/error',
-        successFlash: 'Welcome!'
+        successFlash: 'Welcome!' //?????
     }));
+    router.get('/error', (req, res) => {
+        res.send('failed');
+    });
+
     //log out
     router.get('/logout', function (req, res) {
         console.log('HI');
@@ -44,10 +49,7 @@ module.exports = (express, knex) => {
     });
 
     //check food  VVV
-    router.post('/api/xxx', (req, res) => {
-
-        console.log(req.user); //testing
-
+    router.post('/api/get-calories', (req, res) => {
         axios({
             url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
             method: 'post',
@@ -69,25 +71,23 @@ module.exports = (express, knex) => {
     });
     //save food VVV
     router.post('/api/save-result', (req, res) => {
-        console.log(req.user);
-        console.log(req.body.calories); //testing
         knex('get').insert({
             record: parseFloat(req.body.calories), user_idkey: req.user.id
-        }).then() //.then() is for insert the result
-    });
-
-    router.get('/error', (req, res) => {
-        res.send('failed');
+        }).then((data)=>{ //.then() is for insert the result 
+            console.log("good save");
+        }).catch((err)=>{
+            console.log(err);
+        }) 
     });
 
     router.get('/dashboard', isLoggedIn, (req, res) => {
         res.sendFile(__dirname + '/dashboard.html');
     })
+
     router.get('/getExe', (req, res) => {
         knex.select('id', 'name', 'MET').from('activity')
             .then((data) => {
                 res.json(data);
-
             }).catch((err) => {
                 console.log(err)
             })
@@ -95,28 +95,54 @@ module.exports = (express, knex) => {
 
     router.get('/cal', (req, res) => {
         let user = req.user
-        knex.select('weight').from('user_profile').where({ id: user.id })
+        knex.select('weight').from('user_profile').where({
+                id: user.id
+            })
             .then((data) => {
                 res.json(data[0].weight);
-                console.log(data[0].weight);
-
             }).catch((err) => {
                 console.log(err)
             })
     })
 
     router.post('/api/save-burnresult', (req, res) => {
-        knex('burn').insert({ record: parseFloat(req.body.burncCalories), user_idkey: req.user.id }).then((data) => {
-            res.json({ msg: 'saved calories!' });
+        console.log(req.body)
+        knex('burn').insert({
+            record: parseFloat(req.body.calories),
+            user_idkey: req.user.id
+        }).then((data) => {
+            res.json({
+                msg: 'saved calories!'
+            });
         }).catch((err) => {
             console.log(err);
-            res.status(409).json({ msg: "cannot save" }) //correct syntax
+            res.status(409).json({
+                msg: "cannot save"
+            }) //correct syntax
         })
     });
 
+    router.get('/show', (req, res) => {
+        res.sendFile(__dirname + '/chart.html');
+    });
 
-    router.get('/api/input-data-chart', (req, res) => {
-        
+    router.get('/burn-chart', (req, res) => {
+
+        knex.from('burn').sum('record').innerJoin('user_profile', 'burn.user_idkey',  'user_profile.id').where('burn.user_idkey', req.user.id).whereNot({record:'NaN'}).groupBy('date').orderBy('date', 'aesc')
+            .then((data) => {
+                res.json(data)
+            }).catch((err) => {
+                console.log(err)
+            })
+    })
+
+    router.get('/users-info', (req, res) => {
+        knex('user_profile').where('id', req.user.id)
+            .then((data) => {
+                res.json(data[0]);
+            }).catch((err) => {
+                console.log(err)
+            })
     })
     return router;
 };
