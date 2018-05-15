@@ -12,8 +12,9 @@ $(document).ready(function () {
                 "query": val
             }
         }).done((data) => {
-            $('#cal').html(`Calories: <span id='calories'>${data}</span>`);
-
+            console.log(data)
+            $('#cal').html(`${data}`);
+            $('#cal').val(data);
         }).fail((err) => {
             console.log(err);
         })
@@ -26,10 +27,10 @@ $(document).ready(function () {
             url: '/api/save-result',
             method: 'post',
             data: {
-                "calories": $('#calories').text()
+                "calories": $('#cal').val()
             }
         }).done((data) => {
-            $('#cal').html(`Calories: ${data}`);
+            console.log("save get record");
         }).fail((err) => {
             console.log(err);
         })
@@ -62,7 +63,7 @@ $(document).ready(function () {
             console.log(err);
         })
 
-    $('#calculate').click(function (e) {
+        $('#calculate').click(function (e) {
         e.preventDefault();
         let met = $('#check_exe').val();
         var duration = $('#dur').val();
@@ -80,6 +81,7 @@ $(document).ready(function () {
                 console.log(err);
             });
     });
+        
 
     $('#save-exe').click(function (e) {
         e.preventDefault();
@@ -88,7 +90,7 @@ $(document).ready(function () {
             url: '/api/save-burnresult',
             method: 'post',
             data: {
-                "burncCalories": $('#burn-calories').text()
+                "calories": $('#burn-calories').text()
             }
         }).done((data) => {
             console.log('saved burn calories');

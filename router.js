@@ -92,7 +92,9 @@ module.exports = (express, knex) => {
 
     router.get('/cal', (req, res) => {
         let user = req.user
-        knex.select('weight').from('user_profile').where({ id: user.id })
+        knex.select('weight').from('user_profile').where({
+                id: user.id
+            })
             .then((data) => {
                 res.json(data[0].weight);
             }).catch((err) => {
@@ -101,11 +103,19 @@ module.exports = (express, knex) => {
     })
 
     router.post('/api/save-burnresult', (req, res) => {
-        knex('burn').insert({ record: parseFloat(req.body.burncCalories), user_idkey: req.user.id }).then((data) => {
-            res.json({ msg: 'saved calories!' });
+        console.log(req.body)
+        knex('burn').insert({
+            record: parseFloat(req.body.calories),
+            user_idkey: req.user.id
+        }).then((data) => {
+            res.json({
+                msg: 'saved calories!'
+            });
         }).catch((err) => {
             console.log(err);
-            res.status(409).json({ msg: "cannot save" }) //correct syntax
+            res.status(409).json({
+                msg: "cannot save"
+            }) //correct syntax
         })
     });
 
