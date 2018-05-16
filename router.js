@@ -17,7 +17,7 @@ module.exports = (express, knex) => {
     });
 
     router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/signed',
+        successRedirect: '/dashboard',
         failureRedirect: '/error'
     }));
 
