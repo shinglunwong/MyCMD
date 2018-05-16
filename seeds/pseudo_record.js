@@ -33,6 +33,7 @@ exports.seed = function(knex, Promise) {
         {id: 26, date: '2018-05-11', record:'620',user_idkey:'1'},
         {id: 27, date: '2018-05-12', record:'620',user_idkey:'1'},
         {id: 28, date: '2018-05-13', record:'520',user_idkey:'1'},
+        {id: 29, date: '2018-05-14', record:'520',user_idkey:'1'},
         {id: 30, date: '2018-05-14', record:'1120',user_idkey:'1'},
         {id: 31, date: '2018-05-15', record:'720',user_idkey:'1'},
 
