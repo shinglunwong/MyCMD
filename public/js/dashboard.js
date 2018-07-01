@@ -39,7 +39,7 @@ var myConfig = {
   scaleX: {
     lineColor: '#E3E3E5',
     zooming: true,
-    zoomTo: [0, 10],
+    zoomTo: [0, 7],
     // minValue: 1459468800000,
     step: 1,
     maxValue: 30, //week
@@ -169,7 +169,7 @@ $.ajax({
   for (let i = 0; i < data.length; i++) {
     if (!isNaN(data[i].sum)) {
       burncalories.push(Number(data[i].sum));
-      console.log(data[i].sum);
+      // console.log(data[i].sum);
     }
   }
   zingchart.render({
@@ -200,7 +200,7 @@ $.ajax({
   for (let i = 0; i < data.length; i++) {
     if (!isNaN(data[i].sum)) {
       getcalories.push(Number(data[i].sum));
-      console.log(data[i].sum);
+      // console.log(data[i].sum);
     }
   }
   zingchart.render({
@@ -226,7 +226,7 @@ $.ajax({
 
 //JQ for handle layout
 $(document).ready(function () {
-  $('.dash-chart').show();
+  $('.dash-chart').get();
   $('.dash-get').hide();
   $('.dash-burn').hide();
   $('.tool-timer').hide();
@@ -259,10 +259,14 @@ $(document).ready(function () {
     e.preventDefault();
     $('.tool-timer').show();
   });
+
   $('.close-btn').click(function (e) {
     e.preventDefault();
     $('.tool-timer').hide();
   });
+
+  
+
 });
 
 window.onload = init;

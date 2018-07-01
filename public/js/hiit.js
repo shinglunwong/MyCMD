@@ -91,7 +91,15 @@ $(function () {
             }
         }
         $('.timer').show();
+        let { min, second } = secondToMinute(timerSecondList[index])
+        let mTotal = secondToMinute(timeRun).min
+        let sTotal = secondToMinute(timeRun).second
+        $('.timeRun').html(`${mTotal}m${sTotal}s`);
+        $('.min').html(min+'m');
+        $('.second').html(second+'s');
+        $('.pointer').css('left', (timeRun) / total * 100 + '%')
 
+        
     })
 
     $('.pause').on('click', function (e) {
@@ -103,6 +111,9 @@ $(function () {
         e.preventDefault();
         isPaused = false;
     });
-
+    $('.reset-btn').on('click', function (e) {
+        e.preventDefault();
+    });
+    
 
 })

@@ -12,7 +12,7 @@ $(document).ready(function () {
                 "query": val
             }
         }).done((data) => {
-            console.log(data)
+            // console.log(data)
             $('#cal').html(`${data}`);
             $('#cal').val(data);
         }).fail((err) => {
@@ -30,7 +30,8 @@ $(document).ready(function () {
                 "calories": $('#cal').val()
             }
         }).done((data) => {
-            console.log("save get record");
+            // console.log("save get record");
+            $('#addresult').append('<span>New record !</span>')
         }).fail((err) => {
             console.log(err);
         })
@@ -92,8 +93,9 @@ $(document).ready(function () {
                 "calories": $('#burn-calories').text()
             }
         }).done((data) => {
-            console.log('saved burn calories');
-            alert(data.msg);
+            // console.log('saved burn calories');
+            $('.dash-exe-result').append('<span>New record !</span>')
+
         }).fail((err) => {
             console.log(err);
         })
