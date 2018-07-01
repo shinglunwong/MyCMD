@@ -161,11 +161,9 @@ module.exports = (express, knex) => {
             calories: parseFloat(req.body.calories),
             user_id: req.body.user_id,
         }).then((data) => { //.then() is for insert the result
-            console.log(req)
             res.json('done');
-            console.log("good save");
         }).catch((err) => {
-            console.log(err);
+            res.json(err)
         })
     });
 
