@@ -151,5 +151,40 @@ module.exports = (express, knex) => {
                 console.log(err)
             })
     })
+
+
+    router.post('/api/fav-food', (req, res) => {
+        knex('fb_food').insert({
+            name: req.body.name,
+            quantity: parseFloat(req.body.quantity),
+            carb: parseFloat(req.body.carb),
+            fats: parseFloat(req.body.fats),
+            protein: parseFloat(req.body.protein),
+            calories: parseFloat(req.body.calories),
+            user_id: req.body.user_id,
+        }).then((data) => { //.then() is for insert the result 
+            console.log(req)
+            res.json(data);
+            console.log("good save");
+        }).catch((err) => {
+            console.log(err);
+        })
+    });
+
+    router.post('/api/fav-workout', (req, res) => {
+        knex('fb_workout').insert({
+            name: req.body.name,
+            weight: req.body.weight,
+            rep: req.body.rep,
+            set: req.body.set,
+            user_id: req.body.user_id,
+        }).then((data) => { //.then() is for insert the result 
+            res.json(data);
+            console.log("good save");
+        }).catch((err) => {
+            console.log(err);
+        })
+    });
+    
     return router;
 };
