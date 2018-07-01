@@ -160,7 +160,7 @@ module.exports = (express, knex) => {
             protein: parseFloat(req.body.protein),
             calories: parseFloat(req.body.calories),
             user_id: req.body.user_id,
-        }).then((data) => { //.then() is for insert the result 
+        }).then((data) => { //.then() is for insert the result
             console.log(req)
             res.json('done');
             console.log("good save");
