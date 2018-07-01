@@ -183,6 +183,31 @@ module.exports = (express, knex) => {
             console.log(err);
         })
     });
-    
+
+    router.get('/api/get-fav-workout', (req, res) => {
+        let id = req.body.user_id;
+        knex.select('name','weight','rep','set' ).from('fb_workout')
+        .where('user_id',id)
+        .then((data) => {
+            res.json(data);
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    });
+
+    router.get('/api/get-fav-workout', (req, res) => {
+        let id = req.body.user_id;
+        knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
+        .where('user_id',id)
+        .then((data) => {
+            res.json(data);
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    });
+
+
     return router;
 };
