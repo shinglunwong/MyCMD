@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         table.decimal('weight').notNullable();
         table.integer('rep').notNullable();
         table.integer('set').notNullable();
-        table.integer('user_id').notNullable();
+        table.string('user_id').notNullable();
         table.timestamps(false,true); 
     });
 };

@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
         table.decimal('fats').notNullable();
         table.decimal('protein').notNullable();
         table.decimal('calories').notNullable();
-        table.integer('user_id').notNullable();
+        table.string('user_id').notNullable();
         table.timestamps(false,true); 
     });
 };
