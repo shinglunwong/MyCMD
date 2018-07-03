@@ -261,6 +261,32 @@ module.exports = (express, knex) => {
             })
     });
 
+    router.post(`/api/clear-food/:fbId`, (req, res) => {
+        let user_id = req.params.fbId;
+        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories','user_id').from('fb_food')
+            .where('user_id', user_id)
+            .del()
+            .then((data) => {
+                res.json(data);
+            }).catch((err) => {
+                console.log(err)
+                res.json(err)
+            })
+    });
+
+    router.post(`/api/clear-workout/:fbId`, (req, res) => {
+        let user_id = req.params.fbId;
+        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories','user_id').from('fb_workout')
+            .where('user_id', user_id)
+            .del()
+            .then((data) => {
+                res.json(data);
+            }).catch((err) => {
+                console.log(err)
+                res.json(err)
+            })
+    });
+
 
     return router;
 };
