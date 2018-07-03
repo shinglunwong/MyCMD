@@ -194,7 +194,7 @@ module.exports = (express, knex) => {
 
     });
 
-    router.get(`/api/get-fav-workout/:fbId`, (req, res) => {
+    router.get(`/api/get-fav-food/:fbId`, (req, res) => {
         let user_id = req.param.fbId;
         knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
         .where('user_id',user_id)
