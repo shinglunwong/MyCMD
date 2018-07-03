@@ -225,7 +225,7 @@ module.exports = (express, knex) => {
             .where('weight', weight)
             .where('rep', rep)
             .where('set', set)
-            .ClearSelect()
+            .del()
             .then((data) => {
                 res.json(data);
             }).catch((err) => {
