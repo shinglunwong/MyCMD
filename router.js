@@ -240,11 +240,11 @@ module.exports = (express, knex) => {
     router.get(`/api/del-fav-food/:fbId`, (req, res) => {
         let user_id = req.params.fbId;
         let name = req.body.name;
-        let quantity = req.body.quantity;
-        let carb = req.body.carb;
-        let fats = req.body.fats;
-        let protein = req.body.protein;
-        let calories = req.body.calories;
+        let quantity = parseFloat(req.body.quantity);
+        let carb = parseFloat(req.body.carb);
+        let fats = parseFloat(req.body.fats);
+        let protein = parseFloat(req.body.protein);
+        let calories = parseFloat(req.body.calories);
         knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories','user_id').from('fb_food')
             .where('user_id', user_id)
             .where('name',name)
