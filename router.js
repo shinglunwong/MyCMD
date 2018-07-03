@@ -175,19 +175,17 @@ module.exports = (express, knex) => {
             set: req.body.set,
             user_id: req.body.user_id,
         }).then((data) => { //.then() is for insert the result 
-            res.json(data);
-            console.log("good save");
+            res.json('done');
         }).catch((err) => {
             console.log(err);
         })
     });
 
     router.get('/api/get-fav-workout', (req, res) => {
-        let id = req.body.user_id;
         knex.select('name','weight','rep','set' ).from('fb_workout')
         .where('user_id',id)
         .then((data) => {
-            res.json(data);
+            res.json('done');
         }).catch((err) => {
             console.log(err)
         })
@@ -195,11 +193,10 @@ module.exports = (express, knex) => {
     });
 
     router.get('/api/get-fav-workout', (req, res) => {
-        let id = req.body.user_id;
         knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
         .where('user_id',id)
         .then((data) => {
-            res.json(data);
+            res.json('done');
         }).catch((err) => {
             console.log(err)
         })
