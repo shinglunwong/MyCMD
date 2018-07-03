@@ -181,7 +181,8 @@ module.exports = (express, knex) => {
         })
     });
 
-    router.get('/api/get-fav-workout', (req, res) => {
+    router.get(`/api/get-fav-workout/:fb_id`, (req, res) => {
+        let user_id = req.param.fb_id;
         knex.select('name','weight','rep','set' ).from('fb_workout')
         .where('user_id',user_id)
         .then((data) => {
@@ -192,7 +193,8 @@ module.exports = (express, knex) => {
 
     });
 
-    router.get('/api/get-fav-workout', (req, res) => {
+    router.get(`/api/get-fav-workout/:fb_id`, (req, res) => {
+        let user_id = req.param.fb_id;
         knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
         .where('user_id',user_id)
         .then((data) => {
