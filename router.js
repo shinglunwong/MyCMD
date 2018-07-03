@@ -236,16 +236,29 @@ module.exports = (express, knex) => {
             })
 
     });
-    router.get(`/api/del-fav-workout/:fbId`, (req, res) => {
+    router.get(`/api/del-fav-food:fbId`, (req, res) => {
         let user_id = req.params.fbId;
-        knex.select('name', 'weight', 'rep', 'set').from('fb_workout')
+        let name = req.body.name;
+        let quantity = req.body.quantity;
+        let carb = req.body.carb;
+        let fats = req.body.fats;
+        let protein = req.body.protein;
+        let calories = req.body.calories;
+        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories').from('fb_food')
             .where('user_id', user_id)
-            .clearSelect()
+            .where('name',name)
+            .where('quantity', quantity)
+            .where('carb',carb)
+            .where('fats', fats)
+            .where('protein', protein)
+            .where('calories',calories)
+            .del()
             .then((data) => {
                 res.json(data);
             }).catch((err) => {
                 console.log(err)
                 res.json(err)
+
             })
 
     });
