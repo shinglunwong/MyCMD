@@ -186,6 +186,7 @@ module.exports = (express, knex) => {
         knex.select('name','weight','rep','set' ).from('fb_workout')
         .where('user_id',user_id)
         .then((data) => {
+            res.json(data);
             res.json('done');
         }).catch((err) => {
             console.log(err)
@@ -198,6 +199,7 @@ module.exports = (express, knex) => {
         knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
         .where('user_id',user_id)
         .then((data) => {
+            res.json(data);
             res.json('done');
         }).catch((err) => {
             console.log(err)
