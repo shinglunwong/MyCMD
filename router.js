@@ -183,6 +183,7 @@ module.exports = (express, knex) => {
 
     router.get(`/api/get-fav-workout/:fbId`, (req, res) => {
         let user_id = req.param.fbId;
+        res.json({data:user_id})
         knex.select('name','weight','rep','set' ).from('fb_workout')
         .where('user_id',user_id)
         .then((data) => {
