@@ -71,13 +71,14 @@ module.exports = (express, knex) => {
     //save food VVV
     router.post('/api/save-result', (req, res) => {
         knex('get').insert({
-            record: parseFloat(req.body.calories), user_idkey: req.user.id
-        }).then((data)=>{
+            record: parseFloat(req.body.calories),
+            user_idkey: req.user.id
+        }).then((data) => {
             res.json(data) //.then() is for insert the result 
             // console.log("good save");
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err);
-        }) 
+        })
     });
 
     router.get('/dashboard', isLoggedIn, (req, res) => {
@@ -115,7 +116,7 @@ module.exports = (express, knex) => {
             res.json(data)
         }).catch((err) => {
             console.log(err);
-            
+
         })
     });
 
@@ -124,7 +125,9 @@ module.exports = (express, knex) => {
     });
 
     router.get('/burn-chart', (req, res) => {
-        knex.from('burn').sum('record').innerJoin('user_profile', 'burn.user_idkey',  'user_profile.id').where('burn.user_idkey', req.user.id).whereNot({record:'NaN'}).groupBy('date').orderBy('date', 'aesc')
+        knex.from('burn').sum('record').innerJoin('user_profile', 'burn.user_idkey', 'user_profile.id').where('burn.user_idkey', req.user.id).whereNot({
+                record: 'NaN'
+            }).groupBy('date').orderBy('date', 'aesc')
             .then((data) => {
                 res.json(data)
             }).catch((err) => {
@@ -133,7 +136,9 @@ module.exports = (express, knex) => {
     })
 
     router.get('/get-chart', (req, res) => {
-        knex.from('get').sum('record').innerJoin('user_profile', 'get.user_idkey',  'user_profile.id').where('get.user_idkey', req.user.id).whereNot({record:'NaN'}).groupBy('date').orderBy('date', 'aesc')
+        knex.from('get').sum('record').innerJoin('user_profile', 'get.user_idkey', 'user_profile.id').where('get.user_idkey', req.user.id).whereNot({
+                record: 'NaN'
+            }).groupBy('date').orderBy('date', 'aesc')
             .then((data) => {
                 res.json(data)
             }).catch((err) => {
@@ -182,29 +187,29 @@ module.exports = (express, knex) => {
     });
 
     router.get(`/api/get-fav-workout/:fbId`, (req, res) => {
-        let user_id = req.param.fbId;
-        res.json({data:user_id})
-        knex.select('name','weight','rep','set' ).from('fb_workout')
-        .where('user_id',user_id)
-        .then((data) => {
-            res.json(data);
-            res.json('done');
-        }).catch((err) => {
-            console.log(err)
-        })
+        let user_id = req.params.fbId;
+        knex.select('name', 'weight', 'rep', 'set').from('fb_workout')
+            .where('user_id', user_id)
+            .then((data) => {
+                res.json(data);
+            }).catch((err) => {
+                console.log(err)
+                res.json(err)
+            })
 
     });
 
     router.get(`/api/get-fav-food/:fbId`, (req, res) => {
-        let user_id = req.param.fbId;
-        knex.select('name','quantity','carb','fats','protein','calories' ).from('fb_food')
-        .where('user_id',user_id)
-        .then((data) => {
-            res.json(data);
-            res.json('done');
-        }).catch((err) => {
-            console.log(err)
-        })
+        let user_id = req.params.fbId;
+        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories').from('fb_food')
+            .where('user_id', user_id)
+            .then((data) => {
+                res.json(data);
+            }).catch((err) => {
+                console.log(err)
+                res.json(err)
+
+            })
 
     });
 
