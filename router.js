@@ -228,6 +228,7 @@ module.exports = (express, knex) => {
             .del()
             .then((data) => {
                 res.json(data);
+                res.json(hi);
             }).catch((err) => {
                 console.log(err)
                 res.json(err)
