@@ -261,8 +261,8 @@ module.exports = (express, knex) => {
             })
     });
 
-    router.get(`/api/clear-food/:fbId`, (req, res) => {
-        let user_id = req.params.fbId;
+    router.post(`/api/clear-food`, (req, res) => {
+        let user_id = req.body.user_id;
         knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories','user_id').from('fb_food')
             .where('user_id', user_id)
             .del()
@@ -274,8 +274,8 @@ module.exports = (express, knex) => {
             })
     });
 
-    router.get(`/api/clear-workout/:fbId`, (req, res) => {
-        let user_id = req.params.fbId;
+    router.post(`/api/clear-workout`, (req, res) => {
+        let user_id = req.body.user_id;
         knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories','user_id').from('fb_workout')
             .where('user_id', user_id)
             .del()
