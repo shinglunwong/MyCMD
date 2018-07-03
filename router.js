@@ -219,7 +219,7 @@ module.exports = (express, knex) => {
         let weight = req.body.weight;
         let rep = req.body.rep;
         let set = req.body.set;
-        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories').from('fb_food')
+        knex.select('name', 'quantity', 'carb', 'fats', 'protein', 'calories', 'user_id').from('fb_food')
             .where('user_id', user_id)
             .where('name', name)
             .where('weight', weight)
