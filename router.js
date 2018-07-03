@@ -225,7 +225,7 @@ module.exports = (express, knex) => {
             .where('weight', weight)
             .where('rep', rep)
             .where('set', set)
-            .del()
+            .delete()
             .then((data) => {
                 res.json(data);
                 res.json(hi);
