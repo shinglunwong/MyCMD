@@ -237,7 +237,7 @@ module.exports = (express, knex) => {
 
     });
 
-    router.get(`/api/del-fav-food:fbId`, (req, res) => {
+    router.get(`/api/del-fav-food/:fbId`, (req, res) => {
         let user_id = req.params.fbId;
         let name = req.body.name;
         let quantity = req.body.quantity;
