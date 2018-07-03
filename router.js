@@ -213,7 +213,7 @@ module.exports = (express, knex) => {
 
     });
 
-    router.post(`/api/del-fav-food/:fbId`, (req, res) => {
+    router.post(`/api/del-fav-workout/:fbId`, (req, res) => {
         let user_id = req.params.fbId;
         let name = req.name;
         let weight = req.body.weight;
