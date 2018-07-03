@@ -219,9 +219,13 @@ module.exports = (express, knex) => {
         let weight = req.body.weight;
         let rep = req.body.rep;
         let set = req.body.set;
-        knex.select('name', 'weight', 'rep', 'set','user_id').from('fb_food')
+        knex.select('name', 'weight', 'rep', 'set', 'user_id').from('fb_workout')
             .where('user_id', user_id)
-            .delete()
+            .where('name', name)
+            .where('weight', weight)
+            .where('rep', rep)
+            .where('set', set)
+            .del()
             .then((data) => {
                 res.json(data);
                 res.json(hi);
