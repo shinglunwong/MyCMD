@@ -215,7 +215,7 @@ module.exports = (express, knex) => {
 
     router.post(`/api/del-fav-workout/:fbId`, (req, res) => {
         let user_id = req.params.fbId;
-        let name = req.name;
+        let name = req.body.name;
         let weight = req.body.weight;
         let rep = req.body.rep;
         let set = req.body.set;
